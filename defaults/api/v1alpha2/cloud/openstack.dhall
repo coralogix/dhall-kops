@@ -1,4 +1,4 @@
-let OpenStack = ../../../../types/api/v1alpha2/cloud/OpenStack.dhall
+let Openstack = ../../../../types/api/v1alpha2/cloud/Openstack.dhall
 
 in    { loadbalancer =
           None
@@ -47,4 +47,4 @@ in    { loadbalancer =
               Optional Text
           }
       }
-    : OpenStack
+    : Openstack

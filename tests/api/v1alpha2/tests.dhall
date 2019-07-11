@@ -2,7 +2,7 @@ let defaults = ../../../defaults/api/v1alpha2/package.dhall
 
 let Types = ../../../types/api/v1alpha2/package.dhall
 
-let kubernetes = (../../../Imports.dhall).kubernetes
+let kubernetes = (../../../imports.dhall).kubernetes
 
 in  { accessSpec =
         { dns =

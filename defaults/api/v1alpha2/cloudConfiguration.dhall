@@ -5,5 +5,5 @@
 , vSphere =
     ./cloud/vSphere.dhall
 , openstack =
-    { openstack = ./cloud/openStack.dhall }
+    { openstack = ./cloud/openstack.dhall }
 }
