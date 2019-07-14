@@ -172,8 +172,6 @@ in  { accessSpec =
                       "example"
                   , subnets =
                       [ "example" ]
-                  , zones =
-                      [ "example" ]
                   }
             }
         : Types.InstanceGroup
@@ -190,8 +188,6 @@ in  { accessSpec =
             , machineType =
                 "example"
             , subnets =
-                [ "example" ]
-            , zones =
                 [ "example" ]
             }
         : Types.InstanceGroupSpec

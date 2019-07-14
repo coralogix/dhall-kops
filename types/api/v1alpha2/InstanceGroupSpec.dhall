@@ -39,7 +39,7 @@ in    { role :
       , subnets :
           List Text
       , zones :
-          List Text
+          Optional (List Text)
       , hooks :
           Optional (List HookSpec.Union)
       , maxPrice :

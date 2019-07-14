@@ -59,4 +59,6 @@ in  { rootVolumeSize =
         None IAMProfileSpec
     , securityGroupOverride =
         None Text
+    , zones =
+        None (List Text)
     }

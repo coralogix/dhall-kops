@@ -12,8 +12,8 @@ This allows the user to more easily generate type-safe Kops configuration, throu
 ## Install
 For stability, users are encouraged to import from a tagged release, not from the master branch, and to watch for new releases. This project does not yet have rigorous testing set up for it and new commits on the master branch are prone to break compatiblility and are almost sure to change the import hash for the expression, thus the releases are currently `v0.x`.
 ```
-https://raw.githubusercontent.com/coralogix/dhall-kops/v0.1.2/defaults/package.dhall sha256:7fe22b0e200028118e1e1bec91f935885e753b1e7f952d4506744c84905af5be
-https://raw.githubusercontent.com/coralogix/dhall-kops/v0.1.2/types/package.dhall sha256:bc9fc165fcb12b9c9131dbc0a8720f5e44454a40a4b9409045df9c0d45d97053
+https://raw.githubusercontent.com/coralogix/dhall-kops/v0.1.3/defaults/package.dhall sha256:e6dac45f7f34476b050dcb9aa5690359f3b46323e081829bdef87ad4d96af00e
+https://raw.githubusercontent.com/coralogix/dhall-kops/v0.1.3/types/package.dhall sha256:f4da01587740aea3d187740eaab4cedc9a15ada55b6438c1f50919cba985634a
 ```
 
 ## Usage
