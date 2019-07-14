@@ -59,116 +59,121 @@ let IAMSpec = ../../../types/api/v1alpha2/IAMSpec.dhall : Type
 
 let TargetSpec = ../../../types/api/v1alpha2/TargetSpec.dhall : Type
 
-let ClusterSpec = ../../../types/api/v1alpha2/ClusterSpec.dhall
+let AuthenticationSpec =
+      ../../../types/api/v1alpha2/AuthenticationSpec.dhall : Type
 
-let open =
-        { channel =
-            None Text
-        , addons =
-            None (List AddonSpec)
-        , configBase =
-            None Text
-        , cloudProvider =
-            None Text
-        , kubernetesVersion =
-            None Text
-        , subnets =
-            None (List ClusterSubnetSpec)
-        , project =
-            None Text
-        , masterPublicName =
-            None Text
-        , masterInternalName =
-            None Text
-        , networkCIDR =
-            None Text
-        , additionalNetworkCIDRs =
-            None (List Text)
-        , networkID =
-            None Text
-        , topology =
-            None TopologySpec
-        , secretStore =
-            None Text
-        , keyStore =
-            None Text
-        , configStore =
-            None Text
-        , dnsZone =
-            None Text
-        , additionalSans =
-            None (List Text)
-        , clusterDNSDomain =
-            None Text
-        , serviceClusterIPRange =
-            None Text
-        , nonMasqueradeCIDR =
-            None Text
-        , sshAccess =
-            None (List Text)
-        , nodePortAccess =
-            None (List Text)
-        , egressProxy =
-            None EgressProxySpec
-        , sshKeyName =
-            None Text
-        , kubernetesApiAccess =
-            None (List Text)
-        , isolateMasters =
-            None Bool
-        , updatePolicy =
-            None Text
-        , additionalPolicies =
-            None (List { mapKey : Text, mapValue : Text })
-        , fileAssets =
-            None (List FileAssetSpec)
-        , etcdClusters =
-            None (List EtcdClusterSpec)
-        , docker =
-            None DockerConfig
-        , kubeDNS =
-            None KubeDNSConfig
-        , kubeAPIServer =
-            None KubeAPIServerConfig
-        , kubeControllerManager =
-            None KubeControllerManagerConfig
-        , cloudControllerManager =
-            None CloudControllerManagerConfig
-        , kubeScheduler =
-            None KubeSchedulerConfig
-        , kubeProxy =
-            None KubeProxyConfig
-        , kubelet =
-            None KubeletConfigSpec
-        , masterKubelet =
-            None KubeletConfigSpec
-        , cloudConfig =
-            None CloudConfiguration
-        , externalDns =
-            None ExternalDNSConfig
-        , networking =
-            None NetworkingSpec
-        , api =
-            None AccessSpec
-        , nodeAuthorization =
-            None NodeAuthorizationSpec
-        , cloudLabels =
-            None (List { mapKey : Text, mapValue : Text })
-        , hooks =
-            None (List HookSpec.Union)
-        , assets =
-            None Assets
-        , iam =
-            None IAMSpec
-        , encryptionConfig =
-            None Bool
-        , disableSubnetTags =
-            None Bool
-        , target =
-            None TargetSpec
-        }
-      : ClusterSpec.Open
+let AuthorizationSpec =
+      ../../../types/api/v1alpha2/AuthorizationSpec.dhall : Type
 
-let secured = open
+let ClusterSpec = ../../../types/api/v1alpha2/ClusterSpec.dhall : Type
 
-in  { open = open, secured = secured }
+in    { channel =
+          None Text
+      , addons =
+          None (List AddonSpec)
+      , configBase =
+          None Text
+      , cloudProvider =
+          None Text
+      , kubernetesVersion =
+          None Text
+      , subnets =
+          None (List ClusterSubnetSpec)
+      , project =
+          None Text
+      , masterPublicName =
+          None Text
+      , masterInternalName =
+          None Text
+      , networkCIDR =
+          None Text
+      , additionalNetworkCIDRs =
+          None (List Text)
+      , networkID =
+          None Text
+      , topology =
+          None TopologySpec
+      , secretStore =
+          None Text
+      , keyStore =
+          None Text
+      , configStore =
+          None Text
+      , dnsZone =
+          None Text
+      , additionalSans =
+          None (List Text)
+      , clusterDNSDomain =
+          None Text
+      , serviceClusterIPRange =
+          None Text
+      , nonMasqueradeCIDR =
+          None Text
+      , sshAccess =
+          None (List Text)
+      , nodePortAccess =
+          None (List Text)
+      , egressProxy =
+          None EgressProxySpec
+      , sshKeyName =
+          None Text
+      , kubernetesApiAccess =
+          None (List Text)
+      , isolateMasters =
+          None Bool
+      , updatePolicy =
+          None Text
+      , additionalPolicies =
+          None (List { mapKey : Text, mapValue : Text })
+      , fileAssets =
+          None (List FileAssetSpec)
+      , etcdClusters =
+          None (List EtcdClusterSpec)
+      , docker =
+          None DockerConfig
+      , kubeDNS =
+          None KubeDNSConfig
+      , kubeAPIServer =
+          None KubeAPIServerConfig
+      , kubeControllerManager =
+          None KubeControllerManagerConfig
+      , cloudControllerManager =
+          None CloudControllerManagerConfig
+      , kubeScheduler =
+          None KubeSchedulerConfig
+      , kubeProxy =
+          None KubeProxyConfig
+      , kubelet =
+          None KubeletConfigSpec
+      , masterKubelet =
+          None KubeletConfigSpec
+      , cloudConfig =
+          None CloudConfiguration
+      , externalDns =
+          None ExternalDNSConfig
+      , networking =
+          None NetworkingSpec
+      , api =
+          None AccessSpec
+      , nodeAuthorization =
+          None NodeAuthorizationSpec
+      , cloudLabels =
+          None (List { mapKey : Text, mapValue : Text })
+      , hooks =
+          None (List HookSpec.Union)
+      , assets =
+          None Assets
+      , iam =
+          None IAMSpec
+      , encryptionConfig =
+          None Bool
+      , disableSubnetTags =
+          None Bool
+      , target =
+          None TargetSpec
+      , authentication =
+          None AuthenticationSpec
+      , authorization =
+          None AuthorizationSpec
+      }
+    : ClusterSpec

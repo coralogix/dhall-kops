@@ -78,24 +78,11 @@ in  { accessSpec =
           ∧ { metadata =
                 kubernetes.meta.v1.objectMeta { name = "example" }
             , spec =
-                Types.ClusterSpec.Union.Open defaults.clusterSpec.open
+                defaults.clusterSpec
             }
         : Types.Cluster
     , clusterSpec =
-        { open =
-            Types.ClusterSpec.Union.Open defaults.clusterSpec.open
-        , secured =
-            Types.ClusterSpec.Union.Secured
-            (   defaults.clusterSpec.secured
-              ∧ { authentication =
-                    Types.AuthenticationSpec.AWS
-                    (defaults.authenticationSpec.aws ∧ { aws = {=} })
-                , authorization =
-                    Types.AuthorizationSpec.RBAC
-                    (defaults.authorizationSpec.rbac ∧ { rbac = {=} })
-                }
-            )
-        }
+        defaults.clusterSpec
     , clusterSubnetSpec =
             defaults.clusterSubnetSpec
           ∧ { name =

@@ -48,123 +48,112 @@ let IAMSpec = ./IAMSpec.dhall
 
 let TargetSpec = ./TargetSpec.dhall
 
-let Common =
-      { channel :
-          Optional Text
-      , addons :
-          Optional (List AddonSpec)
-      , configBase :
-          Optional Text
-      , cloudProvider :
-          Optional Text
-      , kubernetesVersion :
-          Optional Text
-      , subnets :
-          Optional (List ClusterSubnetSpec)
-      , project :
-          Optional Text
-      , masterPublicName :
-          Optional Text
-      , masterInternalName :
-          Optional Text
-      , networkCIDR :
-          Optional Text
-      , additionalNetworkCIDRs :
-          Optional (List Text)
-      , networkID :
-          Optional Text
-      , topology :
-          Optional TopologySpec
-      , secretStore :
-          Optional Text
-      , keyStore :
-          Optional Text
-      , configStore :
-          Optional Text
-      , dnsZone :
-          Optional Text
-      , additionalSans :
-          Optional (List Text)
-      , clusterDNSDomain :
-          Optional Text
-      , serviceClusterIPRange :
-          Optional Text
-      , nonMasqueradeCIDR :
-          Optional Text
-      , sshAccess :
-          Optional (List Text)
-      , nodePortAccess :
-          Optional (List Text)
-      , egressProxy :
-          Optional EgressProxySpec
-      , sshKeyName :
-          Optional Text
-      , kubernetesApiAccess :
-          Optional (List Text)
-      , isolateMasters :
-          Optional Bool
-      , updatePolicy :
-          Optional Text
-      , additionalPolicies :
-          Optional (List { mapKey : Text, mapValue : Text })
-      , fileAssets :
-          Optional (List FileAssetSpec)
-      , etcdClusters :
-          Optional (List EtcdClusterSpec)
-      , docker :
-          Optional DockerConfig
-      , kubeDNS :
-          Optional KubeDNSConfig
-      , kubeAPIServer :
-          Optional KubeAPIServerConfig
-      , kubeControllerManager :
-          Optional KubeControllerManagerConfig
-      , cloudControllerManager :
-          Optional CloudControllerManagerConfig
-      , kubeScheduler :
-          Optional KubeSchedulerConfig
-      , kubeProxy :
-          Optional KubeProxyConfig
-      , kubelet :
-          Optional KubeletConfigSpec
-      , masterKubelet :
-          Optional KubeletConfigSpec
-      , cloudConfig :
-          Optional CloudConfiguration
-      , externalDns :
-          Optional ExternalDNSConfig
-      , networking :
-          Optional NetworkingSpec
-      , api :
-          Optional AccessSpec
-      , nodeAuthorization :
-          Optional NodeAuthorizationSpec
-      , cloudLabels :
-          Optional (List { mapKey : Text, mapValue : Text })
-      , hooks :
-          Optional (List HookSpec.Union)
-      , assets :
-          Optional Assets
-      , iam :
-          Optional IAMSpec
-      , encryptionConfig :
-          Optional Bool
-      , disableSubnetTags :
-          Optional Bool
-      , target :
-          Optional TargetSpec
-      }
-
-let Open = Common
-
-let Secured =
-        Common
-      ⩓ { authentication :
-            AuthenticationSpec
-        , authorization :
-            AuthorizationSpec
-        }
-
-let Union = < Open : Common | Secured : Secured >
-
-in  { Open = Open, Secured = Secured, Union = Union }
+in  { channel :
+        Optional Text
+    , addons :
+        Optional (List AddonSpec)
+    , configBase :
+        Optional Text
+    , cloudProvider :
+        Optional Text
+    , kubernetesVersion :
+        Optional Text
+    , subnets :
+        Optional (List ClusterSubnetSpec)
+    , project :
+        Optional Text
+    , masterPublicName :
+        Optional Text
+    , masterInternalName :
+        Optional Text
+    , networkCIDR :
+        Optional Text
+    , additionalNetworkCIDRs :
+        Optional (List Text)
+    , networkID :
+        Optional Text
+    , topology :
+        Optional TopologySpec
+    , secretStore :
+        Optional Text
+    , keyStore :
+        Optional Text
+    , configStore :
+        Optional Text
+    , dnsZone :
+        Optional Text
+    , additionalSans :
+        Optional (List Text)
+    , clusterDNSDomain :
+        Optional Text
+    , serviceClusterIPRange :
+        Optional Text
+    , nonMasqueradeCIDR :
+        Optional Text
+    , sshAccess :
+        Optional (List Text)
+    , nodePortAccess :
+        Optional (List Text)
+    , egressProxy :
+        Optional EgressProxySpec
+    , sshKeyName :
+        Optional Text
+    , kubernetesApiAccess :
+        Optional (List Text)
+    , isolateMasters :
+        Optional Bool
+    , updatePolicy :
+        Optional Text
+    , additionalPolicies :
+        Optional (List { mapKey : Text, mapValue : Text })
+    , fileAssets :
+        Optional (List FileAssetSpec)
+    , etcdClusters :
+        Optional (List EtcdClusterSpec)
+    , docker :
+        Optional DockerConfig
+    , kubeDNS :
+        Optional KubeDNSConfig
+    , kubeAPIServer :
+        Optional KubeAPIServerConfig
+    , kubeControllerManager :
+        Optional KubeControllerManagerConfig
+    , cloudControllerManager :
+        Optional CloudControllerManagerConfig
+    , kubeScheduler :
+        Optional KubeSchedulerConfig
+    , kubeProxy :
+        Optional KubeProxyConfig
+    , kubelet :
+        Optional KubeletConfigSpec
+    , masterKubelet :
+        Optional KubeletConfigSpec
+    , cloudConfig :
+        Optional CloudConfiguration
+    , externalDns :
+        Optional ExternalDNSConfig
+    , networking :
+        Optional NetworkingSpec
+    , api :
+        Optional AccessSpec
+    , nodeAuthorization :
+        Optional NodeAuthorizationSpec
+    , cloudLabels :
+        Optional (List { mapKey : Text, mapValue : Text })
+    , hooks :
+        Optional (List HookSpec.Union)
+    , assets :
+        Optional Assets
+    , iam :
+        Optional IAMSpec
+    , encryptionConfig :
+        Optional Bool
+    , disableSubnetTags :
+        Optional Bool
+    , target :
+        Optional TargetSpec
+    , authentication :
+        Optional AuthenticationSpec
+    , authorization :
+        Optional AuthorizationSpec
+    }
