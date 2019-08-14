@@ -1,4 +1,4 @@
-let Metadata = (../../../ImportTypes.dhall).Kubernetes.meta.v1.ObjectMeta
+let Metadata = ./Metadata.dhall : Type
 
 let Spec = ./ClusterSpec.dhall : Type
 

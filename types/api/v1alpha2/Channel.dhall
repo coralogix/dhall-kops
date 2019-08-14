@@ -1,4 +1,4 @@
-let ObjectMeta = (../../../ImportTypes.dhall).Kubernetes.meta.v1.ObjectMeta
+let Metadata = ./Metadata.dhall : Type
 
 let ChannelSpec = ./ChannelSpec.dhall : Type
 
@@ -7,7 +7,7 @@ in    { apiVersion :
       , kind :
           Text
       , metadata :
-          ObjectMeta
+          Metadata
       , spec :
           ChannelSpec
       }

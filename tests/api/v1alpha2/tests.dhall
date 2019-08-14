@@ -2,8 +2,6 @@ let defaults = ../../../defaults/api/v1alpha2/package.dhall
 
 let Types = ../../../types/api/v1alpha2/package.dhall
 
-let kubernetes = (../../../imports.dhall).kubernetes
-
 in  { accessSpec =
         { dns =
             Types.AccessSpec.DNS (defaults.accessSpec.dns ∧ { dns = {=} })
@@ -40,7 +38,7 @@ in  { accessSpec =
     , channel =
             defaults.channel
           ∧ { metadata =
-                kubernetes.meta.v1.objectMeta { name = "example" }
+                defaults.metadata ∧ { name = "example" }
             , spec =
                 defaults.channelSpec
             }
@@ -76,7 +74,7 @@ in  { accessSpec =
     , cluster =
             defaults.cluster
           ∧ { metadata =
-                kubernetes.meta.v1.objectMeta { name = "example" }
+                defaults.metadata ∧ { name = "example" }
             , spec =
                 defaults.clusterSpec
             }
@@ -157,7 +155,7 @@ in  { accessSpec =
     , instanceGroup =
             defaults.instanceGroup
           ∧ { metadata =
-                kubernetes.meta.v1.objectMeta { name = "example" }
+                defaults.metadata ∧ { name = "example" }
             , spec =
                   defaults.instanceGroupSpec
                 ∧ { role =

@@ -80,6 +80,8 @@
     ./loadBalancer.dhall
 , loadBalancerAccessSpec =
     ./loadBalancerAccessSpec.dhall
+, metadata =
+    ./metadata.dhall
 , networkingSpec =
     ./networkingSpec.dhall
 , nodeAuthorizationSpec =
