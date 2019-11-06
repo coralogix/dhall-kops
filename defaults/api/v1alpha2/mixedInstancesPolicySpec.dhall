@@ -12,6 +12,6 @@ in    { instances =
       , spotAllocationStrategy =
           None Text
       , spotInstancePools =
-          None Text
+          None Natural
       }
     : MixedInstancesPolicySpec

@@ -9,6 +9,6 @@
   , spotAllocationStrategy :
       Optional Text
   , spotInstancePools :
-      Optional Text
+      Optional Natural
   }
 : Type
