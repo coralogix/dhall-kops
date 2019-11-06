@@ -1,3 +1,5 @@
+let MixedInstancesPolicySpec = ./MixedInstancesPolicySpec.dhall : Type
+
 let UserData = ./UserData.dhall : Type
 
 let LoadBalancer = ./LoadBalancer.dhall : Type
@@ -24,6 +26,8 @@ in    { role :
           Natural
       , machineType :
           Text
+      , mixedInstancesPolicy :
+          Optional MixedInstancesPolicySpec
       , rootVolumeSize :
           Optional Natural
       , rootVolumeType :

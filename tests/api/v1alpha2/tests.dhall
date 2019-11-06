@@ -219,6 +219,8 @@ in  { accessSpec =
     , loadBalancerAccessSpec =
           defaults.loadBalancerAccessSpec ∧ { type = "example" }
         : Types.LoadBalancerAccessSpec
+    , mixedInstancesPolicySpec =
+        defaults.mixedInstancesPolicySpec : Types.MixedInstancesPolicySpec
     , networking =
         { amazonVPC =
             defaults.networking.amazonVPC : Types.Networking.AmazonVPC

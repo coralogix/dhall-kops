@@ -1,3 +1,6 @@
+let MixedInstancesPolicySpec =
+      ../../../types/api/v1alpha2/MixedInstancesPolicySpec.dhall : Type
+
 let UserData = ../../../types/api/v1alpha2/UserData.dhall : Type
 
 let LoadBalancer = ../../../types/api/v1alpha2/LoadBalancer.dhall : Type
@@ -31,6 +34,8 @@ in  { rootVolumeSize =
         None (List HookSpec.Union)
     , maxPrice =
         None Text
+    , mixedInstancesPolicy =
+        None MixedInstancesPolicySpec
     , associatePublicIp =
         None Bool
     , additionalSecurityGroups =

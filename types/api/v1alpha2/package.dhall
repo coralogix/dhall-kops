@@ -82,6 +82,8 @@
     ./LoadBalancer.dhall
 , LoadBalancerAccessSpec =
     ./LoadBalancerAccessSpec.dhall
+, MixedInstancesPolicySpec =
+    ./MixedInstancesPolicySpec.dhall
 , Networking =
     ./networking/package.dhall
 , NetworkingSpec =

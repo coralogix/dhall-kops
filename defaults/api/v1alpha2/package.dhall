@@ -82,6 +82,8 @@
     ./loadBalancerAccessSpec.dhall
 , metadata =
     ./metadata.dhall
+, mixedInstancesPolicySpec =
+    ./mixedInstancesPolicySpec.dhall
 , networkingSpec =
     ./networkingSpec.dhall
 , nodeAuthorizationSpec =
