@@ -1,0 +1,143 @@
+let Map = (../../imports.dhall).Prelude.Map.Type
+
+in  { Type =
+        { apiServers : Optional Text
+        , anonymousAuth : Optional Bool
+        , authorizationMode : Optional Text
+        , bootstrapKubeconfig : Optional Text
+        , clientCaFile : Optional Text
+        , tlsCertFile : Optional Text
+        , tlsPrivateKeyFile : Optional Text
+        , kubeconfigPath : Optional Text
+        , requireKubeconfig : Optional Bool
+        , logLevel : Optional Natural
+        , podManifestPath : Optional Text
+        , hostnameOverride : Optional Text
+        , podInfraContainerImage : Optional Text
+        , seccompProfileRoot : Optional Text
+        , allowPrivileged : Optional Bool
+        , enableDebuggingHandlers : Optional Bool
+        , registerNode : Optional Bool
+        , nodeStatusUpdateFrequency : Optional Text
+        , clusterDomain : Optional Text
+        , clusterDNS : Optional Text
+        , networkPluginName : Optional Text
+        , cloudProvider : Optional Text
+        , kubeletCgroups : Optional Text
+        , runtimeCgroups : Optional Text
+        , readOnlyPort : Optional Natural
+        , systemCgroups : Optional Text
+        , cgroupRoot : Optional Text
+        , configureCbr0 : Optional Bool
+        , hairpinMode : Optional Text
+        , babysitDaemons : Optional Bool
+        , maxPods : Optional Natural
+        , nvidiaGPUs : Optional Natural
+        , podCIDR : Optional Text
+        , resolvConf : Optional Text
+        , reconcileCIDR : Optional Bool
+        , registerSchedulable : Optional Bool
+        , serializeImagePulls : Optional Bool
+        , nodeLabels : Optional (Map Text Text)
+        , nonMasqueradeCIDR : Optional Text
+        , enableCustomMetrics : Optional Bool
+        , networkPluginMTU : Optional Natural
+        , imageGCHighThresholdPercent : Optional Natural
+        , imageGCLowThresholdPercent : Optional Natural
+        , imagePullProgressDeadline : Optional Text
+        , evictionHard : Optional Text
+        , evictionSoft : Optional Text
+        , evictionSoftGracePeriod : Optional Text
+        , evictionPressureTransitionPeriod : Optional Text
+        , evictionMaxPodGracePeriod : Optional Natural
+        , evictionMinimumReclaim : Optional Text
+        , volumePluginDirectory : Optional Text
+        , taints : Optional (List Text)
+        , featureGates : Optional (Map Text Text)
+        , kubeReserved : Optional (Map Text Text)
+        , kubeReservedCgroup : Optional Text
+        , systemReserved : Optional (Map Text Text)
+        , systemReservedCgroup : Optional Text
+        , enforceNodeAllocatable : Optional Text
+        , runtimeRequestTimeout : Optional Text
+        , volumeStatsAggPeriod : Optional Text
+        , failSwapOn : Optional Bool
+        , experimentalAllowedUnsafeSysctls : Optional (List Text)
+        , allowedUnsafeSysctls : Optional (List Text)
+        , streamingConnectionIdleTimeout : Optional Text
+        , dockerDisableSharedPID : Optional Bool
+        , rootDir : Optional Text
+        , authenticationTokenWebhook : Optional Bool
+        , authenticationTokenWebhookCacheTtl : Optional Text
+        }
+    , default =
+        { apiServers = None Text
+        , anonymousAuth = None Bool
+        , authorizationMode = None Text
+        , bootstrapKubeconfig = None Text
+        , clientCaFile = None Text
+        , tlsCertFile = None Text
+        , tlsPrivateKeyFile = None Text
+        , kubeconfigPath = None Text
+        , requireKubeconfig = None Bool
+        , logLevel = None Natural
+        , podManifestPath = None Text
+        , hostnameOverride = None Text
+        , podInfraContainerImage = None Text
+        , seccompProfileRoot = None Text
+        , allowPrivileged = None Bool
+        , enableDebuggingHandlers = None Bool
+        , registerNode = None Bool
+        , nodeStatusUpdateFrequency = None Text
+        , clusterDomain = None Text
+        , clusterDNS = None Text
+        , networkPluginName = None Text
+        , cloudProvider = None Text
+        , kubeletCgroups = None Text
+        , runtimeCgroups = None Text
+        , readOnlyPort = None Natural
+        , systemCgroups = None Text
+        , cgroupRoot = None Text
+        , configureCbr0 = None Bool
+        , hairpinMode = None Text
+        , babysitDaemons = None Bool
+        , maxPods = None Natural
+        , nvidiaGPUs = None Natural
+        , podCIDR = None Text
+        , resolvConf = None Text
+        , reconcileCIDR = None Bool
+        , registerSchedulable = None Bool
+        , serializeImagePulls = None Bool
+        , nodeLabels = None (Map Text Text)
+        , nonMasqueradeCIDR = None Text
+        , enableCustomMetrics = None Bool
+        , networkPluginMTU = None Natural
+        , imageGCHighThresholdPercent = None Natural
+        , imageGCLowThresholdPercent = None Natural
+        , imagePullProgressDeadline = None Text
+        , evictionHard = None Text
+        , evictionSoft = None Text
+        , evictionSoftGracePeriod = None Text
+        , evictionPressureTransitionPeriod = None Text
+        , evictionMaxPodGracePeriod = None Natural
+        , evictionMinimumReclaim = None Text
+        , volumePluginDirectory = None Text
+        , taints = None (List Text)
+        , featureGates = None (Map Text Text)
+        , kubeReserved = None (Map Text Text)
+        , kubeReservedCgroup = None Text
+        , systemReserved = None (Map Text Text)
+        , systemReservedCgroup = None Text
+        , enforceNodeAllocatable = None Text
+        , runtimeRequestTimeout = None Text
+        , volumeStatsAggPeriod = None Text
+        , failSwapOn = None Bool
+        , experimentalAllowedUnsafeSysctls = None (List Text)
+        , allowedUnsafeSysctls = None (List Text)
+        , streamingConnectionIdleTimeout = None Text
+        , dockerDisableSharedPID = None Bool
+        , rootDir = None Text
+        , authenticationTokenWebhook = None Bool
+        , authenticationTokenWebhookCacheTtl = None Text
+        }
+    }

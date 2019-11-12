@@ -1,1 +1,0 @@
-{ usesSecondaryIP : Optional Bool } : Type

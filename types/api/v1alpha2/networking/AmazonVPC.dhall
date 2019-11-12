@@ -1,1 +1,0 @@
-{ imageName : Optional Text } : Type

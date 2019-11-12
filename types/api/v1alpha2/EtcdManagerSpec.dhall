@@ -1,1 +1,0 @@
-{ image : Optional Text } : Type

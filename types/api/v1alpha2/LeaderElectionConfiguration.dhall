@@ -1,1 +1,0 @@
-{ leaderElect : Bool } : Type

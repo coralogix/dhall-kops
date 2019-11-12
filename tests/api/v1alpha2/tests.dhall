@@ -1,340 +1,209 @@
-let defaults = ../../../defaults/api/v1alpha2/package.dhall
-
-let Types = ../../../types/api/v1alpha2/package.dhall
+let Kops = ../../../api/v1alpha2/package.dhall
 
 in  { accessSpec =
-        { dns =
-            Types.AccessSpec.DNS (defaults.accessSpec.dns ∧ { dns = {=} })
+        { dns = Kops.AccessSpec.DNS { dns = {=} }
         , loadBalancer =
-            Types.AccessSpec.LoadBalancer
-            (   defaults.accessSpec.loadBalancer
-              ∧ { loadBalancer =
-                    defaults.loadBalancerAccessSpec ∧ { type = "example" }
-                }
-            )
+            Kops.AccessSpec.LoadBalancer
+              { loadBalancer = Kops.LoadBalancerAccessSpec::{ type = "example" }
+              }
         }
-    , addonSpec =
-        defaults.addonSpec ∧ { manifest = "example" } : Types.AddonSpec
-    , assets =
-        defaults.assets : Types.Assets
+    , addonSpec = Kops.AddonSpec::{ manifest = "example" }
+    , assets = Kops.Assets::{=}
     , authenticationSpec =
-        { kopeio =
-            Types.AuthenticationSpec.Kopeio
-            (defaults.authenticationSpec.kopeio ∧ { kopeio = {=} })
-        , aws =
-            Types.AuthenticationSpec.AWS
-            (defaults.authenticationSpec.aws ∧ { aws = {=} })
+        { kopeio = Kops.AuthenticationSpec.Kopeio { kopeio = {=} }
+        , aws = Kops.AuthenticationSpec.AWS { aws = {=} }
         }
     , authorizationSpec =
-        { alwaysAllow =
-            Types.AuthorizationSpec.AlwaysAllow
-            (defaults.authorizationSpec.alwaysAllow ∧ { alwaysAllow = {=} })
-        , rbac =
-            Types.AuthorizationSpec.RBAC
-            (defaults.authorizationSpec.rbac ∧ { rbac = {=} })
+        { alwaysAllow = Kops.AuthorizationSpec.AlwaysAllow { alwaysAllow = {=} }
+        , rbac = Kops.AuthorizationSpec.RBAC { rbac = {=} }
         }
-    , bastionSpec =
-        defaults.bastionSpec : Types.BastionSpec
+    , bastionSpec = Kops.BastionSpec::{=}
     , channel =
-            defaults.channel
-          ∧ { metadata =
-                defaults.metadata ∧ { name = "example" }
-            , spec =
-                defaults.channelSpec
-            }
-        : Types.Channel
-    , channelImageSpec =
-        defaults.channelImageSpec : Types.ChannelImageSpec
-    , channelSpec =
-        defaults.channelSpec : Types.ChannelSpec
+        Kops.Channel::{
+        , metadata = Kops.Metadata::{ name = "example" }
+        , spec = Kops.ChannelSpec::{=}
+        }
+    , channelImageSpec = Kops.ChannelImageSpec::{=}
+    , channelSpec = Kops.ChannelSpec::{=}
     , cloud =
-        { aws =
-            defaults.cloud.aws : Types.Cloud.AWS
-        , gce =
-            defaults.cloud.gce : Types.Cloud.GCE
-        , openstack =
-            defaults.cloud.openstack : Types.Cloud.Openstack
-        , vsphere =
-            defaults.cloud.vSphere : Types.Cloud.VSphere
+        { aws = Kops.Cloud.AWS::{=}
+        , gce = Kops.Cloud.GCE::{=}
+        , openstack = Kops.Cloud.Openstack::{=}
+        , vsphere = Kops.Cloud.VSphere::{=}
         }
     , cloudConfiguration =
-        { aws =
-            Types.CloudConfiguration.AWS defaults.cloudConfiguration.aws
-        , gce =
-            Types.CloudConfiguration.GCE defaults.cloudConfiguration.gce
+        { aws = Kops.CloudConfiguration.AWS Kops.Cloud.AWS::{=}
+        , gce = Kops.CloudConfiguration.GCE Kops.Cloud.GCE::{=}
         , openstack =
-            Types.CloudConfiguration.Openstack
-            defaults.cloudConfiguration.openstack
-        , vsphere =
-            Types.CloudConfiguration.VSphere defaults.cloudConfiguration.vSphere
+            Kops.CloudConfiguration.Openstack
+              { openstack = Kops.Cloud.Openstack::{=} }
+        , vsphere = Kops.CloudConfiguration.VSphere Kops.Cloud.VSphere::{=}
         }
-    , cloudControllerManagerConfig =
-          defaults.cloudControllerManagerConfig
-        : Types.CloudControllerManagerConfig
+    , cloudControllerManagerConfig = Kops.CloudControllerManagerConfig::{=}
     , cluster =
-            defaults.cluster
-          ∧ { metadata =
-                defaults.metadata ∧ { name = "example" }
-            , spec =
-                defaults.clusterSpec
-            }
-        : Types.Cluster
-    , clusterSpec =
-        defaults.clusterSpec
+        Kops.Cluster::{
+        , metadata = Kops.Metadata::{ name = "example" }
+        , spec = Kops.ClusterSpec::{=}
+        }
+    , clusterSpec = Kops.ClusterSpec::{=}
     , clusterSubnetSpec =
-            defaults.clusterSubnetSpec
-          ∧ { name =
-                "example"
-            , cidr =
-                "0.0.0.0/0"
-            , zone =
-                "example"
-            , type =
-                "example"
-            }
-        : Types.ClusterSubnetSpec
-    , dnsSpec =
-        defaults.dnsSpec : Types.DNSSpec
-    , dockerConfig =
-        defaults.dockerConfig : Types.DockerConfig
-    , egressProxySpec =
-        defaults.egressProxySpec : Types.EgressProxySpec
-    , etcdBackupSpec =
-        defaults.etcdBackupSpec : Types.EtcdBackupSpec
+        Kops.ClusterSubnetSpec::{
+        , name = "example"
+        , cidr = "0.0.0.0/0"
+        , zone = "example"
+        , type = "example"
+        }
+    , dnsSpec = Kops.DNSSpec::{=}
+    , dockerConfig = Kops.DockerConfig::{=}
+    , egressProxySpec = Kops.EgressProxySpec::{=}
+    , etcdBackupSpec = Kops.EtcdBackupSpec::{=}
     , etcdClusterSpec =
-            defaults.etcdClusterSpec
-          ∧ { name =
-                "example"
-            , etcdMembers =
-                [   defaults.etcdMemberSpec
-                  ∧ { name = "example", instanceGroup = "example" }
-                ]
-            }
-        : Types.EtcdClusterSpec
-    , etcdManagerSpec =
-        defaults.etcdManagerSpec : Types.EtcdManagerSpec
+        Kops.EtcdClusterSpec::{
+        , name = "example"
+        , etcdMembers =
+            [ Kops.EtcdMemberSpec::{
+              , name = "example"
+              , instanceGroup = "example"
+              }
+            ]
+        }
+    , etcdManagerSpec = Kops.EtcdManagerSpec::{=}
     , etcdMemberSpec =
-            defaults.etcdMemberSpec
-          ∧ { name = "example", instanceGroup = "example" }
-        : Types.EtcdMemberSpec
-    , execContainerAction =
-          defaults.execContainerAction ∧ { image = "example" }
-        : Types.ExecContainerAction
-    , externalDNSConfig =
-        defaults.externalDNSConfig : Types.ExternalDNSConfig
+        Kops.EtcdMemberSpec::{ name = "example", instanceGroup = "example" }
+    , execContainerAction = Kops.ExecContainerAction::{ image = "example" }
+    , externalDNSConfig = Kops.ExternalDNSConfig::{=}
     , fileAssetSpec =
-            defaults.fileAssetSpec
-          ∧ { name = "example", path = "example", content = "example" }
-        : Types.FileAssetSpec
+        Kops.FileAssetSpec::{
+        , name = "example"
+        , path = "example"
+        , content = "example"
+        }
     , hookSpec =
         { dockerImage =
-            Types.HookSpec.Union.DockerImage
-            (   defaults.hookSpec.dockerImage
-              ∧ { execContainer =
-                    defaults.execContainerAction ∧ { image = "example" }
-                }
-            )
+            Kops.HookSpec.Union.DockerImage
+              Kops.HookSpec.DockerImage::{
+              , execContainer = Kops.ExecContainerAction::{ image = "example" }
+              }
         , systemdUnit =
-            Types.HookSpec.Union.SystemdUnit
-            (   defaults.hookSpec.systemdUnit
-              ∧ { name = "example", manifest = "example" }
-            )
+            Kops.HookSpec.Union.SystemdUnit
+              Kops.HookSpec.SystemdUnit::{
+              , name = "example"
+              , manifest = "example"
+              }
         }
-    , httpProxy =
-        defaults.httpProxy ∧ { host = "example" } : Types.HTTPProxy
-    , iamProfileSpec =
-        defaults.iamProfileSpec ∧ { profile = "example" } : Types.IAMProfileSpec
+    , httpProxy = Kops.HTTPProxy::{ host = "example" }
+    , iamProfileSpec = Kops.IAMProfileSpec::{ profile = "example" }
     , iamSpec =
-        { empty =
-            Types.IAMSpec.Empty
-        , strict =
-            Types.IAMSpec.Strict defaults.iamSpec.strict
+        { empty = Kops.IAMSpec.Empty
+        , strict = Kops.IAMSpec.Strict { legacy = False }
         , permitEcr =
-            Types.IAMSpec.PermitECR defaults.iamSpec.permitEcr
+            Kops.IAMSpec.PermitECR
+              { legacy = False, allowContainerRegistry = True }
         }
     , instanceGroup =
-            defaults.instanceGroup
-          ∧ { metadata =
-                defaults.metadata ∧ { name = "example" }
-            , spec =
-                  defaults.instanceGroupSpec
-                ∧ { role =
-                      "example"
-                  , image =
-                      "example"
-                  , minSize =
-                      1
-                  , maxSize =
-                      1
-                  , machineType =
-                      "example"
-                  , subnets =
-                      [ "example" ]
-                  }
+        Kops.InstanceGroup::{
+        , metadata = Kops.Metadata::{ name = "example" }
+        , spec =
+            Kops.InstanceGroupSpec::{
+            , role = "example"
+            , image = "example"
+            , minSize = 1
+            , maxSize = 1
+            , machineType = "example"
+            , subnets = [ "example" ]
             }
-        : Types.InstanceGroup
-    , instanceGroupSpec =
-            defaults.instanceGroupSpec
-          ∧ { role =
-                "example"
-            , image =
-                "example"
-            , minSize =
-                1
-            , maxSize =
-                1
-            , machineType =
-                "example"
-            , subnets =
-                [ "example" ]
-            }
-        : Types.InstanceGroupSpec
-    , kopsVersionSpec =
-        defaults.kopsVersionSpec : Types.KopsVersionSpec
-    , kubeAPIServerConfig =
-        defaults.kubeAPIServerConfig : Types.KubeAPIServerConfig
-    , kubeControllerManagerConfig =
-        defaults.kubeControllerManagerConfig : Types.KubeControllerManagerConfig
-    , kubeDNSConfig =
-        defaults.kubeDNSConfig : Types.KubeDNSConfig
-    , kubeProxyConfig =
-        defaults.kubeProxyConfig : Types.KubeProxyConfig
-    , kubeSchedulerConfig =
-        defaults.kubeSchedulerConfig : Types.KubeSchedulerConfig
-    , kubeletConfigSpec =
-        defaults.kubeletConfigSpec : Types.KubeletConfigSpec
-    , kubernetesVersionSpec =
-        defaults.kubernetesVersionSpec : Types.KubernetesVersionSpec
-    , leaderElectionConfiguration =
-          defaults.leaderElectionConfiguration ∧ { leaderElect = True }
-        : Types.LeaderElectionConfiguration
-    , loadBalancer =
-        { classic =
-            Types.LoadBalancer.Classic
-            (defaults.loadBalancer.classic ∧ { loadBalancerName = "example" })
-        , targetGroup =
-            Types.LoadBalancer.TargetGroup
-            (defaults.loadBalancer.targetGroup ∧ { targetGroupARN = "example" })
         }
-    , loadBalancerAccessSpec =
-          defaults.loadBalancerAccessSpec ∧ { type = "example" }
-        : Types.LoadBalancerAccessSpec
-    , mixedInstancesPolicySpec =
-        defaults.mixedInstancesPolicySpec : Types.MixedInstancesPolicySpec
+    , instanceGroupSpec =
+        Kops.InstanceGroupSpec::{
+        , role = "example"
+        , image = "example"
+        , minSize = 1
+        , maxSize = 1
+        , machineType = "example"
+        , subnets = [ "example" ]
+        }
+    , kopsVersionSpec = Kops.KopsVersionSpec::{=}
+    , kubeAPIServerConfig = Kops.KubeAPIServerConfig::{=}
+    , kubeControllerManagerConfig = Kops.KubeControllerManagerConfig::{=}
+    , kubeDNSConfig = Kops.KubeDNSConfig::{=}
+    , kubeProxyConfig = Kops.KubeProxyConfig::{=}
+    , kubeSchedulerConfig = Kops.KubeSchedulerConfig::{=}
+    , kubeletConfigSpec = Kops.KubeletConfigSpec::{=}
+    , kubernetesVersionSpec = Kops.KubernetesVersionSpec::{=}
+    , leaderElectionConfiguration =
+        Kops.LeaderElectionConfiguration::{ leaderElect = True }
+    , loadBalancer =
+        { classic = Kops.LoadBalancer.Classic { loadBalancerName = "example" }
+        , targetGroup =
+            Kops.LoadBalancer.TargetGroup { targetGroupARN = "example" }
+        }
+    , loadBalancerAccessSpec = Kops.LoadBalancerAccessSpec::{ type = "example" }
+    , mixedInstancesPolicySpec = Kops.MixedInstancesPolicySpec::{=}
     , networking =
-        { amazonVPC =
-            defaults.networking.amazonVPC : Types.Networking.AmazonVPC
-        , calico =
-              defaults.networking.calico ∧ { majorVersion = "example" }
-            : Types.Networking.Calico
-        , canal =
-            defaults.networking.canal : Types.Networking.Canal
-        , cilium =
-            defaults.networking.cilium : Types.Networking.Cilium
-        , cni =
-            defaults.networking.cni : Types.Networking.CNI
-        , flannel =
-            defaults.networking.flannel : Types.Networking.Flannel
-        , lyftVPC =
-            defaults.networking.lyftVPC : Types.Networking.LyftVPC
-        , romana =
-            defaults.networking.romana : Types.Networking.Romana
-        , weave =
-            defaults.networking.weave ∧ { mtu = 2048 } : Types.Networking.Weave
+        { amazonVPC = Kops.Networking.AmazonVPC::{=}
+        , calico = Kops.Networking.Calico::{ majorVersion = "example" }
+        , canal = Kops.Networking.Canal::{=}
+        , cilium = Kops.Networking.Cilium::{=}
+        , cni = Kops.Networking.CNI::{=}
+        , flannel = Kops.Networking.Flannel::{=}
+        , lyftVPC = Kops.Networking.LyftVPC::{=}
+        , romana = Kops.Networking.Romana::{=}
+        , weave = Kops.Networking.Weave::{ mtu = 2048 }
         }
     , networkingSpec =
         { amazonVPC =
-            Types.NetworkingSpec.AmazonVPC
-            (   defaults.networkingSpec.amazonVPC
-              ∧ { amazonvpc = defaults.networking.amazonVPC }
-            )
+            Kops.NetworkingSpec.AmazonVPC
+              { amazonvpc = Kops.Networking.AmazonVPC::{=} }
         , calico =
-            Types.NetworkingSpec.Calico
-            (   defaults.networkingSpec.calico
-              ∧ { calico =
-                    defaults.networking.calico ∧ { majorVersion = "example" }
-                }
-            )
+            Kops.NetworkingSpec.Calico
+              { calico = Kops.Networking.Calico::{ majorVersion = "example" } }
         , canal =
-            Types.NetworkingSpec.Canal
-            (   defaults.networkingSpec.canal
-              ∧ { canal = defaults.networking.canal }
-            )
+            Kops.NetworkingSpec.Canal { canal = Kops.Networking.Canal::{=} }
         , cilium =
-            Types.NetworkingSpec.Cilium
-            (   defaults.networkingSpec.cilium
-              ∧ { cilium = defaults.networking.cilium }
-            )
-        , classic =
-            Types.NetworkingSpec.Classic
-            (defaults.networkingSpec.classic ∧ { classic = {=} })
-        , cni =
-            Types.NetworkingSpec.CNI
-            (defaults.networkingSpec.cni ∧ { cni = defaults.networking.cni })
-        , external =
-            Types.NetworkingSpec.External
-            (defaults.networkingSpec.external ∧ { external = {=} })
+            Kops.NetworkingSpec.Cilium { cilium = Kops.Networking.Cilium::{=} }
+        , classic = Kops.NetworkingSpec.Classic { classic = {=} }
+        , cni = Kops.NetworkingSpec.CNI { cni = Kops.Networking.CNI::{=} }
+        , external = Kops.NetworkingSpec.External { external = {=} }
         , flannel =
-            Types.NetworkingSpec.Flannel
-            (   defaults.networkingSpec.flannel
-              ∧ { flannel = defaults.networking.flannel }
-            )
-        , kopeio =
-            Types.NetworkingSpec.Kopeio
-            (defaults.networkingSpec.kopeio ∧ { kopeio = {=} })
-        , kubenet =
-            Types.NetworkingSpec.Kubenet
-            (defaults.networkingSpec.kubenet ∧ { kubenet = {=} })
-        , kuberouter =
-            Types.NetworkingSpec.Kuberouter
-            (defaults.networkingSpec.kuberouter ∧ { kuberouter = {=} })
+            Kops.NetworkingSpec.Flannel
+              { flannel = Kops.Networking.Flannel::{=} }
+        , kopeio = Kops.NetworkingSpec.Kopeio { kopeio = {=} }
+        , kubenet = Kops.NetworkingSpec.Kubenet { kubenet = {=} }
+        , kuberouter = Kops.NetworkingSpec.Kuberouter { kuberouter = {=} }
         , lyftVPC =
-            Types.NetworkingSpec.LyftVPC
-            (   defaults.networkingSpec.lyftVPC
-              ∧ { lyftvpc = defaults.networking.lyftVPC }
-            )
+            Kops.NetworkingSpec.LyftVPC
+              { lyftvpc = Kops.Networking.LyftVPC::{=} }
         , romana =
-            Types.NetworkingSpec.Romana
-            (   defaults.networkingSpec.romana
-              ∧ { romana = defaults.networking.romana }
-            )
+            Kops.NetworkingSpec.Romana { romana = Kops.Networking.Romana::{=} }
         , weave =
-            Types.NetworkingSpec.Weave
-            (   defaults.networkingSpec.weave
-              ∧ { weave = defaults.networking.weave ∧ { mtu = 2048 } }
-            )
+            Kops.NetworkingSpec.Weave
+              { weave = Kops.Networking.Weave::{ mtu = 2048 } }
         }
     , nodeAuthorizationSpec =
-            defaults.nodeAuthorizationSpec
-          ∧ { nodeAuthorizer = defaults.nodeAuthorizerSpec }
-        : Types.NodeAuthorizationSpec
-    , nodeAuthorizerSpec =
-        defaults.nodeAuthorizerSpec : Types.NodeAuthorizerSpec
-    , targetSpec =
-          defaults.targetSpec ∧ { terraform = defaults.terraformSpec }
-        : Types.TargetSpec
-    , terraformSpec =
-        defaults.terraformSpec : Types.TerraformSpec
-    , topologySpec =
-        defaults.topologySpec : Types.TopologySpec
+        Kops.NodeAuthorizationSpec::{
+        , nodeAuthorizer = Kops.NodeAuthorizerSpec::{=}
+        }
+    , nodeAuthorizerSpec = Kops.NodeAuthorizerSpec::{=}
+    , targetSpec = Kops.TargetSpec::{ terraform = Kops.TerraformSpec::{=} }
+    , terraformSpec = Kops.TerraformSpec::{=}
+    , topologySpec = Kops.TopologySpec::{=}
     , userData =
-            defaults.userData
-          ∧ { name = "example", type = "example", content = "example" }
-        : Types.UserData
+        Kops.UserData::{
+        , name = "example"
+        , type = "example"
+        , content = "example"
+        }
     , volumeMountSpec =
-            defaults.volumeMountSpec
-          ∧ { device = "example", filesystem = "example", path = "example" }
-        : Types.VolumeMountSpec
+        Kops.VolumeMountSpec::{
+        , device = "example"
+        , filesystem = "example"
+        , path = "example"
+        }
     , volumeSpec =
-            defaults.volumeSpec
-          ∧ { device =
-                "example"
-            , encrypted =
-                True
-            , size =
-                20
-            , type =
-                "example"
-            }
-        : Types.VolumeSpec
+        Kops.VolumeSpec::{
+        , device = "example"
+        , encrypted = True
+        , size = 20
+        , type = "example"
+        }
     }
