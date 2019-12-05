@@ -135,7 +135,7 @@ in  { accessSpec =
     , loadBalancer =
         { classic = Kops.LoadBalancer.Classic { loadBalancerName = "example" }
         , targetGroup =
-            Kops.LoadBalancer.TargetGroup { targetGroupARN = "example" }
+            Kops.LoadBalancer.TargetGroup { targetGroupArn = "example" }
         }
     , loadBalancerAccessSpec = Kops.LoadBalancerAccessSpec::{ type = "example" }
     , mixedInstancesPolicySpec = Kops.MixedInstancesPolicySpec::{=}

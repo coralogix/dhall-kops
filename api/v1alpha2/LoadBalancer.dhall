@@ -1,3 +1,3 @@
 < Classic : { loadBalancerName : Text }
-| TargetGroup : { targetGroupARN : Text }
+| TargetGroup : { targetGroupArn : Text }
 >
