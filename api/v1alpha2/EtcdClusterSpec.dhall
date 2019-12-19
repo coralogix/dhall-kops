@@ -6,6 +6,8 @@ let EtcdManagerSpec = ./EtcdManagerSpec.dhall
 
 in  { Type =
         { name : Text
+        , cpuRequest : Optional Text
+        , memoryRequest : Optional Text
         , provider : Optional Text
         , etcdMembers : List EtcdMemberSpec.Type
         , enabledEtcdTLS : Optional Bool
@@ -19,6 +21,8 @@ in  { Type =
         }
     , default =
         { provider = None Text
+        , cpuRequest = None Text
+        , memoryRequest = None Text
         , enabledEtcdTLS = None Bool
         , enableTLSAuth = None Bool
         , version = None Text

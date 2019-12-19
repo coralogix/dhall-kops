@@ -8,5 +8,5 @@ in  { Type =
         , metadata : Metadata.Type
         , spec : ChannelSpec.Type
         }
-    , default = { apiVersion = "kops/v1alpha2", kind = "Channel" }
+    , default = { apiVersion = "kops.k8s.io/v1alpha2", kind = "Channel" }
     }

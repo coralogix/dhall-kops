@@ -8,6 +8,8 @@ in  { Type =
         , clientCaFile : Optional Text
         , tlsCertFile : Optional Text
         , tlsPrivateKeyFile : Optional Text
+        , tlsCipherSuites : Optional (List Text)
+        , tlsMinVersion : Optional Text
         , kubeconfigPath : Optional Text
         , requireKubeconfig : Optional Bool
         , logLevel : Optional Natural
@@ -69,6 +71,11 @@ in  { Type =
         , rootDir : Optional Text
         , authenticationTokenWebhook : Optional Bool
         , authenticationTokenWebhookCacheTtl : Optional Text
+        , cpuCFSQuota : Optional Bool
+        , cpuCFSQuotaPeriod : Optional Text
+        , cpuManagerPolicy : Optional Text
+        , registryPullQPS : Optional Natural
+        , registryBurst : Optional Natural
         }
     , default =
         { apiServers = None Text
@@ -78,6 +85,8 @@ in  { Type =
         , clientCaFile = None Text
         , tlsCertFile = None Text
         , tlsPrivateKeyFile = None Text
+        , tlsCipherSuites = None (List Text)
+        , tlsMinVersion = None Text
         , kubeconfigPath = None Text
         , requireKubeconfig = None Bool
         , logLevel = None Natural
@@ -139,5 +148,10 @@ in  { Type =
         , rootDir = None Text
         , authenticationTokenWebhook = None Bool
         , authenticationTokenWebhookCacheTtl = None Text
+        , cpuCFSQuota = None Bool
+        , cpuCFSQuotaPeriod = None Text
+        , cpuManagerPolicy = None Text
+        , registryPullQPS = None Natural
+        , registryBurst = None Natural
         }
     }

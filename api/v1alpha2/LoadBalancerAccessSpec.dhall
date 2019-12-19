@@ -5,6 +5,7 @@
     , additionalSecurityGroups : Optional (List Text)
     , useForInternalApi : Optional Bool
     , sslCertificate : Optional Text
+    , crossZoneLoadBalancing : Optional Bool
     }
 , default =
     { idleTimeoutSeconds = None Natural
@@ -12,5 +13,6 @@
     , additionalSecurityGroups = None (List Text)
     , useForInternalApi = None Bool
     , sslCertificate = None Text
+    , crossZoneLoadBalancing = None Bool
     }
 }

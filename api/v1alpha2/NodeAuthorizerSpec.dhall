@@ -4,6 +4,7 @@
     , image : Optional Text
     , nodeURL : Optional Text
     , port : Optional Natural
+    , interval : Optional Text
     , timeout : Optional Natural
     , tokenTTL : Optional Natural
     }
@@ -13,6 +14,7 @@
     , image = None Text
     , nodeURL = None Text
     , port = None Natural
+    , interval = None Text
     , timeout = None Natural
     , tokenTTL = None Natural
     }

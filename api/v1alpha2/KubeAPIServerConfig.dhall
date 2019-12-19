@@ -11,8 +11,10 @@
     , enableBootstrapTokenAuth : Optional Bool
     , enableAggregatorRouting : Optional Bool
     , admissionControl : Optional (List Text)
+    , appendAdmissionPlugins : Optional (List Text)
     , enableAdmissionPlugins : Optional (List Text)
     , disableAdmissionPlugins : Optional (List Text)
+    , admissionControlConfigFile : Optional Text
     , serviceClusterIPRange : Optional Text
     , serviceNodePortRange : Optional Text
     , etcdServers : Optional (List Text)
@@ -24,6 +26,8 @@
     , clientCAFile : Optional Text
     , tlsCertFile : Optional Text
     , tlsPrivateKeyFile : Optional Text
+    , tlsCipherSuites : Optional (List Text)
+    , tlsMinVersion : Optional Text
     , tokenAuthFile : Optional Text
     , allowPrivileged : Optional Bool
     , apiServerCount : Optional Natural
@@ -39,6 +43,7 @@
     , oidcGroupsPrefix : Optional Text
     , oidcIssuerURL : Optional Text
     , oidcClientID : Optional Text
+    , oidcRequiredClaim : Optional (List Text)
     , oidcCAFile : Optional Text
     , proxyClientCertFile : Optional Text
     , proxyClientKeyFile : Optional Text
@@ -48,9 +53,20 @@
     , auditLogMaxBackups : Optional Natural
     , auditLogMaxSize : Optional Natural
     , auditPolicyFile : Optional Text
+    , auditWebhookBatchBufferSize : Optional Natural
+    , auditWebhookBatchMaxSize : Optional Natural
+    , auditWebhookBatchMaxWait : Optional Text
+    , auditWebhookBatchThrottleBurst : Optional Natural
+    , auditWebhookBatchThrottleQps : Optional Natural
+    , auditWebhookConfigFile : Optional Text
+    , auditWebhookInitialBackoff : Optional Text
+    , auditWebhookMode : Optional Text
     , authenticationTokenWebhookConfigFile : Optional Text
     , authenticationTokenWebhookCacheTtl : Optional Natural
     , authorizationMode : Optional Text
+    , authorizationWebhookConfigFile : Optional Text
+    , authorizationWebhookCacheAuthorizedTtl : Optional Text
+    , authorizationWebhookCacheUnauthorizedTtl : Optional Text
     , authorizationRbacSuperUser : Optional Text
     , experimentalEncryptionProviderConfig : Optional Text
     , requestheaderUsernameHeaders : Optional (List Text)
@@ -61,9 +77,15 @@
     , featureGates : Optional (List { mapKey : Text, mapValue : Text })
     , maxRequestsInflight : Optional Natural
     , maxMutatingRequestsInflight : Optional Natural
+    , http2MaxStreamsPerConnection : Optional Natural
     , etcdQuorumRead : Optional Bool
     , minRequestTimeout : Optional Natural
     , targetRamMb : Optional Natural
+    , serviceAccountKeyFile : Optional (List Text)
+    , serviceAccountSigningKeyFile : Optional Text
+    , serviceAccountIssuer : Optional Text
+    , apiAudiences : Optional (List Text)
+    , cpuRequest : Optional Text
     }
 , default =
     { image = None Text
@@ -78,8 +100,10 @@
     , enableBootstrapTokenAuth = None Bool
     , enableAggregatorRouting = None Bool
     , admissionControl = None (List Text)
+    , appendAdmissionPlugins = None (List Text)
     , enableAdmissionPlugins = None (List Text)
     , disableAdmissionPlugins = None (List Text)
+    , admissionControlConfigFile = None Text
     , serviceClusterIPRange = None Text
     , serviceNodePortRange = None Text
     , etcdServers = None (List Text)
@@ -91,6 +115,8 @@
     , clientCAFile = None Text
     , tlsCertFile = None Text
     , tlsPrivateKeyFile = None Text
+    , tlsCipherSuites = None (List Text)
+    , tlsMinVersion = None Text
     , tokenAuthFile = None Text
     , allowPrivileged = None Bool
     , apiServerCount = None Natural
@@ -106,6 +132,7 @@
     , oidcGroupsPrefix = None Text
     , oidcIssuerURL = None Text
     , oidcClientID = None Text
+    , oidcRequiredClaim = None (List Text)
     , oidcCAFile = None Text
     , proxyClientCertFile = None Text
     , proxyClientKeyFile = None Text
@@ -115,9 +142,20 @@
     , auditLogMaxBackups = None Natural
     , auditLogMaxSize = None Natural
     , auditPolicyFile = None Text
+    , auditWebhookBatchBufferSize = None Natural
+    , auditWebhookBatchMaxSize = None Natural
+    , auditWebhookBatchMaxWait = None Text
+    , auditWebhookBatchThrottleBurst = None Natural
+    , auditWebhookBatchThrottleQps = None Natural
+    , auditWebhookConfigFile = None Text
+    , auditWebhookInitialBackoff = None Text
+    , auditWebhookMode = None Text
     , authenticationTokenWebhookConfigFile = None Text
     , authenticationTokenWebhookCacheTtl = None Natural
     , authorizationMode = None Text
+    , authorizationWebhookConfigFile = None Text
+    , authorizationWebhookCacheAuthorizedTtl = None Text
+    , authorizationWebhookCacheUnauthorizedTtl = None Text
     , authorizationRbacSuperUser = None Text
     , experimentalEncryptionProviderConfig = None Text
     , requestheaderUsernameHeaders = None (List Text)
@@ -128,8 +166,14 @@
     , featureGates = None (List { mapKey : Text, mapValue : Text })
     , maxRequestsInflight = None Natural
     , maxMutatingRequestsInflight = None Natural
+    , http2MaxStreamsPerConnection = None Natural
     , etcdQuorumRead = None Bool
     , minRequestTimeout = None Natural
     , targetRamMb = None Natural
+    , serviceAccountKeyFile = None (List Text)
+    , serviceAccountSigningKeyFile = None Text
+    , serviceAccountIssuer = None Text
+    , apiAudiences = None (List Text)
+    , cpuRequest = None Text
     }
 }

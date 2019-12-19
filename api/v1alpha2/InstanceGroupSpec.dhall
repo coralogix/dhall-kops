@@ -49,6 +49,7 @@ in  { Type =
         , detailedInstanceMonitoring : Optional Bool
         , iam : Optional IAMProfileSpec.Type
         , securityGroupOverride : Optional Text
+        , instanceProtection : Optional Bool
         }
     , default =
         { rootVolumeSize = None Natural
@@ -75,5 +76,6 @@ in  { Type =
         , iam = None IAMProfileSpec.Type
         , securityGroupOverride = None Text
         , zones = None (List Text)
+        , instanceProtection = None Bool
         }
     }

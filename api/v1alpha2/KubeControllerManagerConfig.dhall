@@ -23,10 +23,16 @@ in  { Type =
         , useServiceAccountCredentials : Optional Bool
         , horizontalPodAutoscalerSyncPeriod : Optional Text
         , horizontalPodAutoscalerDownscaleDelay : Optional Text
+        , horizontalPodAutoscalerDownscaleStabilization : Optional Text
         , horizontalPodAutoscalerUpscaleDelay : Optional Text
         , horizontalPodAutoscalerTolerance : Optional Double
         , horizontalPodAutoscalerUseRestClients : Optional Bool
         , featureGates : Optional (List { mapKey : Text, mapValue : Text })
+        , tlsCipherSuites : Optional (List Text)
+        , tlsMinVersion : Optional Text
+        , minResyncPeriod : Optional Text
+        , kubeAPIQPS : Optional Natural
+        , kubeAPIBurst : Optional Natural
         }
     , default =
         { master = None Text
@@ -51,9 +57,15 @@ in  { Type =
         , useServiceAccountCredentials = None Bool
         , horizontalPodAutoscalerSyncPeriod = None Text
         , horizontalPodAutoscalerDownscaleDelay = None Text
+        , horizontalPodAutoscalerDownscaleStabilization = None Text
         , horizontalPodAutoscalerUpscaleDelay = None Text
         , horizontalPodAutoscalerTolerance = None Double
         , horizontalPodAutoscalerUseRestClients = None Bool
         , featureGates = None (List { mapKey : Text, mapValue : Text })
+        , tlsCipherSuites = None (List Text)
+        , tlsMinVersion = None Text
+        , minResyncPeriod = None Text
+        , kubeAPIQPS = None Natural
+        , kubeAPIBurst = None Natural
         }
     }

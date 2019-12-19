@@ -8,5 +8,5 @@ in  { Type =
         , metadata : Metadata.Type
         , spec : Spec.Type
         }
-    , default = { apiVersion = "kops/v1alpha2", kind = "InstanceGroup" }
+    , default = { apiVersion = "kops.k8s.io/v1alpha2", kind = "InstanceGroup" }
     }
