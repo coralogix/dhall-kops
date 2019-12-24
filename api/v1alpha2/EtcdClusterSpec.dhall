@@ -10,7 +10,7 @@ in  { Type =
         , memoryRequest : Optional Text
         , provider : Optional Text
         , etcdMembers : List EtcdMemberSpec.Type
-        , enabledEtcdTLS : Optional Bool
+        , enableEtcdTLS : Optional Bool
         , enableTLSAuth : Optional Bool
         , version : Optional Text
         , leaderElectionTimeout : Optional Text
@@ -23,7 +23,7 @@ in  { Type =
         { provider = None Text
         , cpuRequest = None Text
         , memoryRequest = None Text
-        , enabledEtcdTLS = None Bool
+        , enableEtcdTLS = None Bool
         , enableTLSAuth = None Bool
         , version = None Text
         , leaderElectionTimeout = None Text

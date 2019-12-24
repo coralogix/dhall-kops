@@ -60,6 +60,7 @@ in  { accessSpec =
     , etcdClusterSpec =
         Kops.EtcdClusterSpec::{
         , name = "example"
+        , enableEtcdTLS = Some True
         , etcdMembers =
             [ Kops.EtcdMemberSpec::{
               , name = "example"
