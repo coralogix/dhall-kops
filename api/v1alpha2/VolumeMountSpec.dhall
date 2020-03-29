@@ -6,5 +6,5 @@
     , path : Text
     }
 , default =
-    { formatOptions = None (List Text), mountOptions = None (List Text) }
+  { formatOptions = None (List Text), mountOptions = None (List Text) }
 }

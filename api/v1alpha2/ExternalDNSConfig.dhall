@@ -4,8 +4,5 @@
     , watchNamespace : Optional Text
     }
 , default =
-    { disable = None Bool
-    , watchIngress = None Bool
-    , watchNamespace = None Text
-    }
+  { disable = None Bool, watchIngress = None Bool, watchNamespace = None Text }
 }

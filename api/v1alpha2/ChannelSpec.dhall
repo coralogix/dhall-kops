@@ -13,9 +13,9 @@ in  { Type =
         , kubernetesVersions : Optional (List KubernetesVersionSpec.Type)
         }
     , default =
-        { images = None (List ChannelImageSpec.Type)
-        , cluster = None ClusterSpec.Type
-        , kopsVersions = None (List KopsVersionSpec.Type)
-        , kubernetesVersions = None (List KubernetesVersionSpec.Type)
-        }
+      { images = None (List ChannelImageSpec.Type)
+      , cluster = None ClusterSpec.Type
+      , kopsVersions = None (List KopsVersionSpec.Type)
+      , kubernetesVersions = None (List KubernetesVersionSpec.Type)
+      }
     }

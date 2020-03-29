@@ -8,11 +8,11 @@
     , crossZoneLoadBalancing : Optional Bool
     }
 , default =
-    { idleTimeoutSeconds = None Natural
-    , securityGroupOverride = None Text
-    , additionalSecurityGroups = None (List Text)
-    , useForInternalApi = None Bool
-    , sslCertificate = None Text
-    , crossZoneLoadBalancing = None Bool
-    }
+  { idleTimeoutSeconds = None Natural
+  , securityGroupOverride = None Text
+  , additionalSecurityGroups = None (List Text)
+  , useForInternalApi = None Bool
+  , sslCertificate = None Text
+  , crossZoneLoadBalancing = None Bool
+  }
 }

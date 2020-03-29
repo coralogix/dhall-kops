@@ -5,5 +5,5 @@
     , size : Natural
     , type : Text
     }
-, default = { iops = None Natural }
+, default.iops = None Natural
 }

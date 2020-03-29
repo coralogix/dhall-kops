@@ -4,7 +4,7 @@
     , environment : Optional (List { mapKey : Text, mapValue : Text })
     }
 , default =
-    { command = None (List Text)
-    , environment = None (List { mapKey : Text, mapValue : Text })
-    }
+  { command = None (List Text)
+  , environment = None (List { mapKey : Text, mapValue : Text })
+  }
 }

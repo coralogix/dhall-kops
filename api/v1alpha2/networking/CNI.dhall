@@ -1,3 +1,3 @@
 { Type = { usesSecondaryIP : Optional Bool }
-, default = { usesSecondaryIP = None Bool }
+, default.usesSecondaryIP = None Bool
 }

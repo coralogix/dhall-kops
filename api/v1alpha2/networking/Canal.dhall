@@ -10,14 +10,14 @@
     , prometheusProcessMetricsEnabled : Optional Bool
     }
 , default =
-    { chainInsertMode = None Text
-    , defaultEndpointToHostAction = None Text
-    , disableFlannelForwardRules = None Bool
-    , logSeveritySys = None Text
-    , mtu = None Natural
-    , prometheusGoMetricsEnabled = None Bool
-    , prometheusMetricsEnabled = None Bool
-    , prometheusMetricsPort = None Natural
-    , prometheusProcessMetricsEnabled = None Bool
-    }
+  { chainInsertMode = None Text
+  , defaultEndpointToHostAction = None Text
+  , disableFlannelForwardRules = None Bool
+  , logSeveritySys = None Text
+  , mtu = None Natural
+  , prometheusGoMetricsEnabled = None Bool
+  , prometheusMetricsEnabled = None Bool
+  , prometheusMetricsPort = None Natural
+  , prometheusProcessMetricsEnabled = None Bool
+  }
 }

@@ -7,11 +7,11 @@
     , spotInstancePools : Optional Natural
     }
 , default =
-    { instances = None (List Text)
-    , onDemandAllocationStrategy = None Text
-    , onDemandBase = None Natural
-    , onDemandAboveBase = None Natural
-    , spotAllocationStrategy = None Text
-    , spotInstancePools = None Natural
-    }
+  { instances = None (List Text)
+  , onDemandAllocationStrategy = None Text
+  , onDemandBase = None Natural
+  , onDemandAboveBase = None Natural
+  , spotAllocationStrategy = None Text
+  , spotInstancePools = None Natural
+  }
 }

@@ -4,8 +4,8 @@
     , containerProxy : Optional Text
     }
 , default =
-    { containerRegistry = None Text
-    , fileRepository = None Text
-    , containerProxy = None Text
-    }
+  { containerRegistry = None Text
+  , fileRepository = None Text
+  , containerProxy = None Text
+  }
 }

@@ -5,8 +5,8 @@
     , selector : Optional { k8s-addon : Text }
     }
 , default =
-    { name = None Text
-    , version = None Text
-    , selector = None { k8s-addon : Text }
-    }
+  { name = None Text
+  , version = None Text
+  , selector = None { k8s-addon : Text }
+  }
 }

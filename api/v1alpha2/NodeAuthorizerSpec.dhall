@@ -9,13 +9,13 @@
     , tokenTTL : Optional Natural
     }
 , default =
-    { authorizer = None Text
-    , features = None (List Text)
-    , image = None Text
-    , nodeURL = None Text
-    , port = None Natural
-    , interval = None Text
-    , timeout = None Natural
-    , tokenTTL = None Natural
-    }
+  { authorizer = None Text
+  , features = None (List Text)
+  , image = None Text
+  , nodeURL = None Text
+  , port = None Natural
+  , interval = None Text
+  , timeout = None Natural
+  , tokenTTL = None Natural
+  }
 }

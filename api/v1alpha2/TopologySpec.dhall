@@ -9,9 +9,9 @@ in  { Type =
         , dns : Optional DNSSpec.Type
         }
     , default =
-        { masters = None Text
-        , nodes = None Text
-        , bastion = None BastionSpec.Type
-        , dns = None DNSSpec.Type
-        }
+      { masters = None Text
+      , nodes = None Text
+      , bastion = None BastionSpec.Type
+      , dns = None DNSSpec.Type
+      }
     }

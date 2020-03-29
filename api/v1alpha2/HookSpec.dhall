@@ -9,11 +9,11 @@ let DockerImage =
           , execContainer : ExecContainerAction.Type
           }
       , default =
-          { disabled = None Bool
-          , roles = None (List Text)
-          , requires = None (List Text)
-          , before = None (List Text)
-          }
+        { disabled = None Bool
+        , roles = None (List Text)
+        , requires = None (List Text)
+        , before = None (List Text)
+        }
       }
 
 let SystemdUnit =
@@ -27,12 +27,12 @@ let SystemdUnit =
           , useRawManifest : Optional Bool
           }
       , default =
-          { disabled = None Bool
-          , roles = None (List Text)
-          , requires = None (List Text)
-          , before = None (List Text)
-          , useRawManifest = None Bool
-          }
+        { disabled = None Bool
+        , roles = None (List Text)
+        , requires = None (List Text)
+        , before = None (List Text)
+        , useRawManifest = None Bool
+        }
       }
 
 let Union = < DockerImage : DockerImage.Type | SystemdUnit : SystemdUnit.Type >

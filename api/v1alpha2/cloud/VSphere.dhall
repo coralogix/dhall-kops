@@ -8,12 +8,12 @@
     , vSphereCoreDNSServer : Optional Text
     }
 , default =
-    { vSphereUsername = None Text
-    , vSpherePassword = None Text
-    , vSphereServer = None Text
-    , vSphereDatacenter = None Text
-    , vSphereResourcePool = None Text
-    , vSphereDatastore = None Text
-    , vSphereCoreDNSServer = None Text
-    }
+  { vSphereUsername = None Text
+  , vSpherePassword = None Text
+  , vSphereServer = None Text
+  , vSphereDatacenter = None Text
+  , vSphereResourcePool = None Text
+  , vSphereDatastore = None Text
+  , vSphereCoreDNSServer = None Text
+  }
 }

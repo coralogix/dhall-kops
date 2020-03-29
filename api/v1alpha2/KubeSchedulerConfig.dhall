@@ -9,11 +9,11 @@ in  { Type =
         , featureGates : Optional (List { mapKey : Text, mapValue : Text })
         }
     , default =
-        { master = None Text
-        , logLevel = None Natural
-        , image = None Text
-        , leaderElection = None LeaderElectionConfiguration.Type
-        , usePolicyConfigMap = None Bool
-        , featureGates = None (List { mapKey : Text, mapValue : Text })
-        }
+      { master = None Text
+      , logLevel = None Natural
+      , image = None Text
+      , leaderElection = None LeaderElectionConfiguration.Type
+      , usePolicyConfigMap = None Bool
+      , featureGates = None (List { mapKey : Text, mapValue : Text })
+      }
     }

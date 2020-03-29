@@ -52,30 +52,30 @@ in  { Type =
         , instanceProtection : Optional Bool
         }
     , default =
-        { rootVolumeSize = None Natural
-        , rootVolumeType = None Text
-        , rootVolumeIops = None Natural
-        , rootVolumeOptimization = None Bool
-        , volumes = None (List VolumeSpec.Type)
-        , volumeMounts = None (List VolumeMountSpec.Type)
-        , hooks = None (List HookSpec.Union)
-        , maxPrice = None Text
-        , mixedInstancesPolicy = None MixedInstancesPolicySpec.Type
-        , associatePublicIp = None Bool
-        , additionalSecurityGroups = None (List Text)
-        , cloudLabels = None (Map Text Text)
-        , nodeLabels = None (Map Text Text)
-        , fileAssets = None (List FileAssetSpec.Type)
-        , tenancy = None Text
-        , kubelet = None KubeletConfigSpec.Type
-        , taints = None (List Text)
-        , additionalUserData = None (List UserData.Type)
-        , suspendProcesses = None (List Text)
-        , externalLoadBalancers = None (List LoadBalancer)
-        , detailedInstanceMonitoring = None Bool
-        , iam = None IAMProfileSpec.Type
-        , securityGroupOverride = None Text
-        , zones = None (List Text)
-        , instanceProtection = None Bool
-        }
+      { rootVolumeSize = None Natural
+      , rootVolumeType = None Text
+      , rootVolumeIops = None Natural
+      , rootVolumeOptimization = None Bool
+      , volumes = None (List VolumeSpec.Type)
+      , volumeMounts = None (List VolumeMountSpec.Type)
+      , hooks = None (List HookSpec.Union)
+      , maxPrice = None Text
+      , mixedInstancesPolicy = None MixedInstancesPolicySpec.Type
+      , associatePublicIp = None Bool
+      , additionalSecurityGroups = None (List Text)
+      , cloudLabels = None (Map Text Text)
+      , nodeLabels = None (Map Text Text)
+      , fileAssets = None (List FileAssetSpec.Type)
+      , tenancy = None Text
+      , kubelet = None KubeletConfigSpec.Type
+      , taints = None (List Text)
+      , additionalUserData = None (List UserData.Type)
+      , suspendProcesses = None (List Text)
+      , externalLoadBalancers = None (List LoadBalancer)
+      , detailedInstanceMonitoring = None Bool
+      , iam = None IAMProfileSpec.Type
+      , securityGroupOverride = None Text
+      , zones = None (List Text)
+      , instanceProtection = None Bool
+      }
     }

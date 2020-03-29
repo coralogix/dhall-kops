@@ -9,9 +9,9 @@
     , publicIP : Optional Text
     }
 , default =
-    { region = None Text
-    , id = None Text
-    , egress = None Text
-    , publicIP = None Text
-    }
+  { region = None Text
+  , id = None Text
+  , egress = None Text
+  , publicIP = None Text
+  }
 }

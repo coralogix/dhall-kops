@@ -20,16 +20,16 @@ in  { Type =
         , manager : Optional EtcdManagerSpec.Type
         }
     , default =
-        { provider = None Text
-        , cpuRequest = None Text
-        , memoryRequest = None Text
-        , enableEtcdTLS = None Bool
-        , enableTLSAuth = None Bool
-        , version = None Text
-        , leaderElectionTimeout = None Text
-        , heartbeatInterval = None Text
-        , image = None Text
-        , backups = None EtcdBackupSpec.Type
-        , manager = None EtcdManagerSpec.Type
-        }
+      { provider = None Text
+      , cpuRequest = None Text
+      , memoryRequest = None Text
+      , enableEtcdTLS = None Bool
+      , enableTLSAuth = None Bool
+      , version = None Text
+      , leaderElectionTimeout = None Text
+      , heartbeatInterval = None Text
+      , image = None Text
+      , backups = None EtcdBackupSpec.Type
+      , manager = None EtcdManagerSpec.Type
+      }
     }

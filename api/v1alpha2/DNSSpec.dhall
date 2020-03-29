@@ -1,1 +1,1 @@
-{ Type = { type : Optional Text }, default = { type = None Text } }
+{ Type = { type : Optional Text }, default.type = None Text }

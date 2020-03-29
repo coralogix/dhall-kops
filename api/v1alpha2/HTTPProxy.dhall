@@ -1,3 +1,1 @@
-{ Type = { host : Text, port : Optional Natural }
-, default = { port = None Natural }
-}
+{ Type = { host : Text, port : Optional Natural }, default.port = None Natural }

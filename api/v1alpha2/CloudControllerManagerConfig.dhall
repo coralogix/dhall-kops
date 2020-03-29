@@ -14,16 +14,16 @@ in  { Type =
         , useServiceAccountCredentials : Optional Bool
         }
     , default =
-        { master = None Text
-        , logLevel = None Natural
-        , image = None Text
-        , cloudProvider = None Text
-        , clusterName = None Text
-        , clusterCIDR = None Text
-        , allocateNodeCIDRs = None Bool
-        , configureCloudRoutes = None Bool
-        , cidrAllocatorType = None Text
-        , leaderElection = None LeaderElectionConfiguration.Type
-        , useServiceAccountCredentials = None Bool
-        }
+      { master = None Text
+      , logLevel = None Natural
+      , image = None Text
+      , cloudProvider = None Text
+      , clusterName = None Text
+      , clusterCIDR = None Text
+      , allocateNodeCIDRs = None Bool
+      , configureCloudRoutes = None Bool
+      , cidrAllocatorType = None Text
+      , leaderElection = None LeaderElectionConfiguration.Type
+      , useServiceAccountCredentials = None Bool
+      }
     }
