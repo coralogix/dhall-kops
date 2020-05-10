@@ -50,6 +50,7 @@ in  { Type =
         , iam : Optional IAMProfileSpec.Type
         , securityGroupOverride : Optional Text
         , instanceProtection : Optional Bool
+        , sysctlParameters : Optional (List Text)
         }
     , default =
       { rootVolumeSize = None Natural
@@ -77,5 +78,6 @@ in  { Type =
       , securityGroupOverride = None Text
       , zones = None (List Text)
       , instanceProtection = None Bool
+      , sysctlParameters = None (List Text)
       }
     }

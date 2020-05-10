@@ -104,14 +104,27 @@ in  { accessSpec =
         , subnets = [ "example" ]
         }
       }
-    , instanceGroupSpec = Kops.InstanceGroupSpec::{
-      , role = "example"
-      , image = "example"
-      , minSize = 1
-      , maxSize = 1
-      , machineType = "example"
-      , subnets = [ "example" ]
-      }
+    , instanceGroupSpec =
+        let default =
+              Kops.InstanceGroupSpec::{
+              , role = "example"
+              , image = "example"
+              , minSize = 1
+              , maxSize = 1
+              , machineType = "example"
+              , subnets = [ "example" ]
+              }
+
+        in  { default
+            , withSysctlParameters =
+                    default
+                  ⫽ { sysctlParameters = Some
+                      [ "fs.pipe-user-pages-soft=524288"
+                      , "net.ipv4.tcp_keepalive_time=200"
+                      ]
+                    }
+                : Kops.InstanceGroupSpec.Type
+            }
     , kopsVersionSpec = Kops.KopsVersionSpec::{=}
     , kubeAPIServerConfig = Kops.KubeAPIServerConfig::{=}
     , kubeControllerManagerConfig = Kops.KubeControllerManagerConfig::{=}
