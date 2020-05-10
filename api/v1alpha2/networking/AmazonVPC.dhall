@@ -1,1 +1,7 @@
-{ Type = { imageName : Optional Text }, default.imageName = None Text }
+{ Type =
+    { imageName : Optional Text
+    , env : Optional (List { name : Text, value : Text })
+    }
+, default =
+  { imageName = None Text, env = None (List { name : Text, value : Text }) }
+}

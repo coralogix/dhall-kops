@@ -9,21 +9,20 @@ let
     }
   ) {};
 
-  dhall-haskell = import (
+  easy-dhall-nix = import (
     let
-      version = "1.31.0";
+      version = "1.31.1";
     in nixpkgs.fetchFromGitHub {
-      owner           = "dhall-lang";
-      repo            = "dhall-haskell";
-      rev             = version;
-      fetchSubmodules = true;
-      sha256          = "030kxbghm9k1r0amrfdlnz9kq2rqijr7pxhbv0bhcb5lrkzajjak";
+      owner  = "justinwoo";
+      repo   = "easy-dhall-nix";
+      rev    = "35bca5ba56b7b3f8684aa0afbb65608159beb5ce";
+      sha256 = "16l71qzzfkv4sbxl03r291nswsrkr3g13viqkma2s8r5vy9la3al";
     }
-  );
+  ) {};
 
 in nixpkgs.mkShell {
   buildInputs = [
-    dhall-haskell.dhall
+    easy-dhall-nix.dhall-simple
     nixpkgs.git
   ];
 }

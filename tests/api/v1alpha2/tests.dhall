@@ -143,8 +143,19 @@ in  { accessSpec =
       }
     , networkingSpec =
       { amazonVPC =
-          Kops.NetworkingSpec.AmazonVPC
-            { amazonvpc = Kops.Networking.AmazonVPC::{=} }
+        { default =
+            Kops.NetworkingSpec.AmazonVPC
+              { amazonvpc = Kops.Networking.AmazonVPC::{=} }
+        , with-env =
+            Kops.NetworkingSpec.AmazonVPC
+              { amazonvpc = Kops.Networking.AmazonVPC::{
+                , env = Some
+                  [ { name = "WARM_IP_TARGET", value = "10" }
+                  , { name = "AWS_VPC_K8S_CNI_LOGLEVEL", value = "debug" }
+                  ]
+                }
+              }
+        }
       , calico =
           Kops.NetworkingSpec.Calico
             { calico = Kops.Networking.Calico::{ majorVersion = "example" } }
