@@ -59,7 +59,14 @@ in  { accessSpec =
       , etcdMembers =
         [ Kops.EtcdMemberSpec::{ name = "example", instanceGroup = "example" } ]
       }
-    , etcdManagerSpec = Kops.EtcdManagerSpec::{=}
+    , etcdManagerSpec = Kops.EtcdManagerSpec::{
+      , env = Some
+        [ { name = "ETCD_LISTEN_METRICS_URLS"
+          , value = "http://__address__:8081"
+          }
+        , { name = "ETCD_METRICS", value = "basic" }
+        ]
+      }
     , etcdMemberSpec = Kops.EtcdMemberSpec::{
       , name = "example"
       , instanceGroup = "example"
@@ -104,27 +111,16 @@ in  { accessSpec =
         , subnets = [ "example" ]
         }
       }
-    , instanceGroupSpec =
-        let default =
-              Kops.InstanceGroupSpec::{
-              , role = "example"
-              , image = "example"
-              , minSize = 1
-              , maxSize = 1
-              , machineType = "example"
-              , subnets = [ "example" ]
-              }
-
-        in  { default
-            , withSysctlParameters =
-                    default
-                  ⫽ { sysctlParameters = Some
-                      [ "fs.pipe-user-pages-soft=524288"
-                      , "net.ipv4.tcp_keepalive_time=200"
-                      ]
-                    }
-                : Kops.InstanceGroupSpec.Type
-            }
+    , instanceGroupSpec = Kops.InstanceGroupSpec::{
+      , role = "example"
+      , image = "example"
+      , minSize = 1
+      , maxSize = 1
+      , machineType = "example"
+      , subnets = [ "example" ]
+      , sysctlParameters = Some
+        [ "fs.pipe-user-pages-soft=524288", "net.ipv4.tcp_keepalive_time=200" ]
+      }
     , kopsVersionSpec = Kops.KopsVersionSpec::{=}
     , kubeAPIServerConfig = Kops.KubeAPIServerConfig::{=}
     , kubeControllerManagerConfig = Kops.KubeControllerManagerConfig::{=}
