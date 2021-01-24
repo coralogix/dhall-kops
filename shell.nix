@@ -11,14 +11,14 @@ let
 
   easy-dhall-nix = import (
     let
-      version = "1.31.1";
+      version = "1.33.1";
     in nixpkgs.fetchFromGitHub {
       owner  = "justinwoo";
       repo   = "easy-dhall-nix";
-      rev    = "35bca5ba56b7b3f8684aa0afbb65608159beb5ce";
-      sha256 = "16l71qzzfkv4sbxl03r291nswsrkr3g13viqkma2s8r5vy9la3al";
-    }
-  ) {};
+      rev    = "288ee825c326f352a5db194a024bd3e1f2f735b2";
+      sha256 = "12v4ql1nm1famz8r80k1xkkdgj7285vy2vn16iili0qwvz3i98ah";
+      }
+    ) {};
 
 in nixpkgs.mkShell {
   buildInputs = [

@@ -33,6 +33,7 @@
     , apiServerCount : Optional Natural
     , runtimeConfig : Optional (List { mapKey : Text, mapValue : Text })
     , kubeletClientCertificate : Optional Text
+    , kubeletCertificateAuthority : Optional Text
     , kubeletClientKey : Optional Text
     , anonymousAuth : Optional Bool
     , kubeletPreferredAddressTypes : Optional (List Text)
@@ -68,6 +69,7 @@
     , authorizationWebhookCacheAuthorizedTtl : Optional Text
     , authorizationWebhookCacheUnauthorizedTtl : Optional Text
     , authorizationRbacSuperUser : Optional Text
+    , encryptionProviderConfig : Optional Text
     , experimentalEncryptionProviderConfig : Optional Text
     , requestheaderUsernameHeaders : Optional (List Text)
     , requestheaderGroupHeaders : Optional (List Text)
@@ -79,13 +81,24 @@
     , maxMutatingRequestsInflight : Optional Natural
     , http2MaxStreamsPerConnection : Optional Natural
     , etcdQuorumRead : Optional Bool
+    , requestTimeout : Optional Natural
     , minRequestTimeout : Optional Natural
     , targetRamMb : Optional Natural
     , serviceAccountKeyFile : Optional (List Text)
     , serviceAccountSigningKeyFile : Optional Text
     , serviceAccountIssuer : Optional Text
+    , serviceAccountJWKSURI : Optional Text
     , apiAudiences : Optional (List Text)
     , cpuRequest : Optional Text
+    , cpuLimit : Optional Text
+    , memoryRequest : Optional Text
+    , memoryLimit : Optional Text
+    , eventTTL : Optional Text
+    , auditDynamicConfiguration : Optional Bool
+    , enableProfiling : Optional Bool
+    , corsAllowedOrigins : Optional (List Text)
+    , defaultNotReadyTolerationSeconds : Optional Natural
+    , defaultUnreachableTolerationSeconds : Optional Natural
     }
 , default =
   { image = None Text
@@ -122,6 +135,7 @@
   , apiServerCount = None Natural
   , runtimeConfig = None (List { mapKey : Text, mapValue : Text })
   , kubeletClientCertificate = None Text
+  , kubeletCertificateAuthority = None Text
   , kubeletClientKey = None Text
   , anonymousAuth = None Bool
   , kubeletPreferredAddressTypes = None (List Text)
@@ -157,6 +171,7 @@
   , authorizationWebhookCacheAuthorizedTtl = None Text
   , authorizationWebhookCacheUnauthorizedTtl = None Text
   , authorizationRbacSuperUser = None Text
+  , encryptionProviderConfig = None Text
   , experimentalEncryptionProviderConfig = None Text
   , requestheaderUsernameHeaders = None (List Text)
   , requestheaderGroupHeaders = None (List Text)
@@ -168,12 +183,23 @@
   , maxMutatingRequestsInflight = None Natural
   , http2MaxStreamsPerConnection = None Natural
   , etcdQuorumRead = None Bool
+  , requestTimeout = None Natural
   , minRequestTimeout = None Natural
   , targetRamMb = None Natural
   , serviceAccountKeyFile = None (List Text)
   , serviceAccountSigningKeyFile = None Text
   , serviceAccountIssuer = None Text
+  , serviceAccountJWKSURI = None Text
   , apiAudiences = None (List Text)
   , cpuRequest = None Text
+  , cpuLimit = None Text
+  , memoryRequest = None Text
+  , memoryLimit = None Text
+  , eventTTL = None Text
+  , auditDynamicConfiguration = None Bool
+  , enableProfiling = None Bool
+  , corsAllowedOrigins = None (List Text)
+  , defaultNotReadyTolerationSeconds = None Natural
+  , defaultUnreachableTolerationSeconds = None Natural
   }
 }

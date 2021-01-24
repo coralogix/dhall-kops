@@ -18,6 +18,10 @@ let KubeletConfigSpec = ./KubeletConfigSpec.dhall
 
 let IAMProfileSpec = ./IAMProfileSpec.dhall
 
+let RollingUpdate = ./RollingUpdate.dhall
+
+let InstanceMetadataOptions = ./InstanceMetadataOptions.dhall
+
 in  { Type =
         { role : Text
         , image : Text
@@ -28,13 +32,18 @@ in  { Type =
         , rootVolumeSize : Optional Natural
         , rootVolumeType : Optional Text
         , rootVolumeIops : Optional Natural
+        , rootVolumeThroughput : Optional Natural
         , rootVolumeOptimization : Optional Bool
+        , rootVolumeDeleteOnTermination : Optional Bool
+        , rootVolumeEncryption : Optional Bool
+        , rootVolumeEncryptionKey : Optional Bool
         , volumes : Optional (List VolumeSpec.Type)
         , volumeMounts : Optional (List VolumeMountSpec.Type)
         , subnets : List Text
         , zones : Optional (List Text)
         , hooks : Optional (List HookSpec.Union)
         , maxPrice : Optional Text
+        , spotDurationInMinutes : Optional Natural
         , associatePublicIp : Optional Bool
         , additionalSecurityGroups : Optional (List Text)
         , cloudLabels : Optional (Map Text Text)
@@ -51,16 +60,25 @@ in  { Type =
         , securityGroupOverride : Optional Text
         , instanceProtection : Optional Bool
         , sysctlParameters : Optional (List Text)
+        , rollingUpdate : Optional RollingUpdate.Type
+        , instanceInterruptionBehavior : Optional Text
+        , compressUserData : Optional Bool
+        , instanceMetadata : Optional InstanceMetadataOptions.Type
         }
     , default =
       { rootVolumeSize = None Natural
       , rootVolumeType = None Text
       , rootVolumeIops = None Natural
+      , rootVolumeThroughput = None Natural
       , rootVolumeOptimization = None Bool
+      , rootVolumeDeleteOnTermination = None Bool
+      , rootVolumeEncryption = None Bool
+      , rootVolumeEncryptionKey = None Bool
       , volumes = None (List VolumeSpec.Type)
       , volumeMounts = None (List VolumeMountSpec.Type)
       , hooks = None (List HookSpec.Union)
       , maxPrice = None Text
+      , spotDurationInMinutes = None Natural
       , mixedInstancesPolicy = None MixedInstancesPolicySpec.Type
       , associatePublicIp = None Bool
       , additionalSecurityGroups = None (List Text)
@@ -79,5 +97,9 @@ in  { Type =
       , zones = None (List Text)
       , instanceProtection = None Bool
       , sysctlParameters = None (List Text)
+      , rollingUpdate = None RollingUpdate.Type
+      , instanceInterruptionBehavior = None Text
+      , compressUserData = None Bool
+      , instanceMetadata = None InstanceMetadataOptions.Type
       }
     }

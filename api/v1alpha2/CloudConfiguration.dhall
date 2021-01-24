@@ -4,4 +4,5 @@ in  < GCE : Cloud.GCE.Type
     | AWS : Cloud.AWS.Type
     | VSphere : Cloud.VSphere.Type
     | Openstack : { openstack : Cloud.Openstack.Type }
+    | Azure : { azure : Cloud.Azure.Type }
     >

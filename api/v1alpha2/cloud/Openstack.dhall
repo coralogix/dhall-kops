@@ -21,13 +21,19 @@
           { externalNetwork : Optional Text
           , dnsServers : Optional Text
           , externalSubnet : Optional Text
+          , availabilityZoneHints : Optional (List Text)
           }
     , blockstorage :
         Optional
           { bs-version : Optional Text
           , ignore-volume-az : Optional Bool
           , override-volume-az : Optional Text
+          , createStorageClass : Optional Bool
+          , csiPluginImage : Optional Text
+          , csiTopologySupport : Optional Bool
           }
+    , insecureSkipVerify : Optional Bool
+    , network : Optional { availabilityZoneHints : Optional (List Text) }
     }
 , default =
   { loadbalancer =
@@ -52,12 +58,18 @@
         { externalNetwork : Optional Text
         , dnsServers : Optional Text
         , externalSubnet : Optional Text
+        , availabilityZoneHints : Optional (List Text)
         }
   , blockstorage =
       None
         { bs-version : Optional Text
         , ignore-volume-az : Optional Bool
         , override-volume-az : Optional Text
+        , createStorageClass : Optional Bool
+        , csiPluginImage : Optional Text
+        , csiTopologySupport : Optional Bool
         }
+  , insecureSkipVerify = None Bool
+  , network = None { availabilityZoneHints : Optional (List Text) }
   }
 }
