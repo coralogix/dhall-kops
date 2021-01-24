@@ -14,4 +14,5 @@ in  < Weave : { weave : Networking.Weave.Type }
     | Kuberouter : { kuberouter : {} }
     | Romana : { romana : Networking.Romana.Type }
     | LyftVPC : { lyftvpc : Networking.LyftVPC.Type }
+    | GCE : { gce : {} }
     >

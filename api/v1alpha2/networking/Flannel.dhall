@@ -1,3 +1,16 @@
-{ Type = { backend : Optional Text, iptablesResyncSeconds : Optional Natural }
-, default = { backend = None Text, iptablesResyncSeconds = None Natural }
-}
+let Flannel =
+      { Type =
+          { backend : Optional Text
+          , disableTxChecksumOffloading : Optional Bool
+          , iptablesResyncSeconds : Optional Natural
+          }
+      , default =
+        { backend = None Text
+        , disableTxChecksumOffloading = None Bool
+        , iptablesResyncSeconds = None Natural
+        }
+      }
+
+let spellcheck = Flannel::{=}
+
+in  Flannel
