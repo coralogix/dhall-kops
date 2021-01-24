@@ -24,5 +24,6 @@ in nixpkgs.mkShell {
   buildInputs = [
     easy-dhall-nix.dhall-simple
     nixpkgs.git
+    nixpkgs.gitAndTools.lefthook
   ];
 }

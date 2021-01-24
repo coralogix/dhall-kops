@@ -1,13 +1,18 @@
 let Kubernetes = (../../imports.dhall).Kubernetes
 
-in  { Type =
-        { drainAndTerminate : Optional Bool
-        , maxUnavailable : Optional Kubernetes.IntOrString
-        , maxSurge : Optional Kubernetes.IntOrString
+let RollingUpdate =
+      { Type =
+          { drainAndTerminate : Optional Bool
+          , maxUnavailable : Optional Kubernetes.IntOrString
+          , maxSurge : Optional Kubernetes.IntOrString
+          }
+      , default =
+        { drainAndTerminate = None Bool
+        , maxUnavailable = None Kubernetes.IntOrString
+        , maxSurge = None Kubernetes.IntOrString
         }
-    , default =
-      { drainAndTerminate = None Bool
-      , maxUnavailable = None Kubernetes.IntOrString
-      , maxSurge = None Kubernetes.IntOrString
       }
-    }
+
+let spellcheck = RollingUpdate::{=}
+
+in  RollingUpdate

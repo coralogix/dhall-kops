@@ -1,0 +1,4 @@
+pre-commit:
+  commands:
+    check-format:
+      run: lefthook/check-format.sh
