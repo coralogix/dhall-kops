@@ -3,10 +3,10 @@
 , Kubernetes.IntOrString =
     let IntOrString =
         {- As this is the only part of dhall-kubernetes that is needed, it doesn't make sense
-        -- to actually import dhall-kubernetes. This will never change.
+        -- to actually import dhall-kubernetes.
         -}
 
-          < Int : Integer | String : Text >
+          < Int : Natural | String : Text >
 
     in  IntOrString
 }
