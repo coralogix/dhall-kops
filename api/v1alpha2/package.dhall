@@ -39,6 +39,7 @@
 , IAMSpec = ./IAMSpec.dhall
 , InstanceGroup = ./InstanceGroup.dhall
 , InstanceGroupSpec = ./InstanceGroupSpec.dhall
+, InstanceMetadataOptions = ./InstanceMetadataOptions.dhall
 , KopsVersionSpec = ./KopsVersionSpec.dhall
 , KubeAPIServerConfig = ./KubeAPIServerConfig.dhall
 , KubeControllerManagerConfig = ./KubeControllerManagerConfig.dhall
