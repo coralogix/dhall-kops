@@ -59,6 +59,7 @@ let KubeAPIServerConfig =
           , auditWebhookBatchMaxSize : Optional Natural
           , auditWebhookBatchMaxWait : Optional Text
           , auditWebhookBatchThrottleBurst : Optional Natural
+          , auditWebhookBatchThrottleEnable : Optional Bool
           , auditWebhookBatchThrottleQps : Optional Natural
           , auditWebhookConfigFile : Optional Text
           , auditWebhookInitialBackoff : Optional Text
@@ -161,6 +162,7 @@ let KubeAPIServerConfig =
         , auditWebhookBatchMaxSize = None Natural
         , auditWebhookBatchMaxWait = None Text
         , auditWebhookBatchThrottleBurst = None Natural
+        , auditWebhookBatchThrottleEnable = None Bool
         , auditWebhookBatchThrottleQps = None Natural
         , auditWebhookConfigFile = None Text
         , auditWebhookInitialBackoff = None Text

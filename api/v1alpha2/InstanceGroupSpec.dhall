@@ -28,6 +28,7 @@ let InstanceGroupSpec =
           , image : Text
           , minSize : Natural
           , maxSize : Natural
+          , autoscale : Optional Bool
           , machineType : Text
           , mixedInstancesPolicy : Optional MixedInstancesPolicySpec.Type
           , rootVolumeSize : Optional Natural
@@ -45,6 +46,7 @@ let InstanceGroupSpec =
           , hooks : Optional (List HookSpec.Union)
           , maxPrice : Optional Text
           , spotDurationInMinutes : Optional Natural
+          , cpuCredits : Optional Text
           , associatePublicIp : Optional Bool
           , additionalSecurityGroups : Optional (List Text)
           , cloudLabels : Optional (Map Text Text)
@@ -65,9 +67,11 @@ let InstanceGroupSpec =
           , instanceInterruptionBehavior : Optional Text
           , compressUserData : Optional Bool
           , instanceMetadata : Optional InstanceMetadataOptions.Type
+          , updatePolicy : Optional Text
           }
       , default =
-        { rootVolumeSize = None Natural
+        { autoscale = None Bool
+        , rootVolumeSize = None Natural
         , rootVolumeType = None Text
         , rootVolumeIops = None Natural
         , rootVolumeThroughput = None Natural
@@ -80,6 +84,7 @@ let InstanceGroupSpec =
         , hooks = None (List HookSpec.Union)
         , maxPrice = None Text
         , spotDurationInMinutes = None Natural
+        , cpuCredits = None Text
         , mixedInstancesPolicy = None MixedInstancesPolicySpec.Type
         , associatePublicIp = None Bool
         , additionalSecurityGroups = None (List Text)
@@ -102,6 +107,7 @@ let InstanceGroupSpec =
         , instanceInterruptionBehavior = None Text
         , compressUserData = None Bool
         , instanceMetadata = None InstanceMetadataOptions.Type
+        , updatePolicy = None Text
         }
       }
 

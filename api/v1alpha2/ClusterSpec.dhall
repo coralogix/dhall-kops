@@ -1,5 +1,7 @@
 let AddonSpec = ./AddonSpec.dhall
 
+let AWSLoadBalancerControllerConfig = ./AWSLoadBalancerControllerConfig.dhall
+
 let ClusterSubnetSpec = ./ClusterSubnetSpec.dhall
 
 let TopologySpec = ./TopologySpec.dhall
@@ -37,6 +39,8 @@ let AccessSpec = ./AccessSpec.dhall
 let AuthenticationSpec = ./AuthenticationSpec.dhall
 
 let AuthorizationSpec = ./AuthorizationSpec.dhall
+
+let NTPConfig = ./NTPConfig.dhall
 
 let NodeAuthorizationSpec = ./NodeAuthorizationSpec.dhall
 
@@ -117,12 +121,15 @@ let ClusterSpec =
           , masterKubelet : Optional KubeletConfigSpec.Type
           , cloudConfig : Optional CloudConfiguration
           , externalDns : Optional ExternalDNSConfig.Type
+          , ntp : Optional NTPConfig.Type
           , nodeTerminationHandler : Optional NodeTerminationHandlerConfig.Type
           , metricsServer : Optional MetricsServerConfig.Type
           , certManager : Optional CertManagerConfig.Type
+          , awsLoadBalancerController :
+              Optional AWSLoadBalancerControllerConfig.Type
           , networking : Optional NetworkingSpec
           , api : Optional AccessSpec
-          , authentication : Optional AuthenticationSpec
+          , authentication : Optional AuthenticationSpec.Type
           , authorization : Optional AuthorizationSpec
           , nodeAuthorization : Optional NodeAuthorizationSpec.Type
           , cloudLabels : Optional (List { mapKey : Text, mapValue : Text })
@@ -186,12 +193,14 @@ let ClusterSpec =
         , masterKubelet = None KubeletConfigSpec.Type
         , cloudConfig = None CloudConfiguration
         , externalDns = None ExternalDNSConfig.Type
+        , ntp = None NTPConfig.Type
         , nodeTerminationHandler = None NodeTerminationHandlerConfig.Type
         , metricsServer = None MetricsServerConfig.Type
         , certManager = None CertManagerConfig.Type
+        , awsLoadBalancerController = None AWSLoadBalancerControllerConfig.Type
         , networking = None NetworkingSpec
         , api = None AccessSpec
-        , authentication = None AuthenticationSpec
+        , authentication = None AuthenticationSpec.Type
         , authorization = None AuthorizationSpec
         , nodeAuthorization = None NodeAuthorizationSpec.Type
         , cloudLabels = None (List { mapKey : Text, mapValue : Text })

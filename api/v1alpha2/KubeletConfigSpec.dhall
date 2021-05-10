@@ -86,6 +86,7 @@ let KubeletConfigSpec =
           , eventBurst : Optional Natural
           , containerLogMaxSize : Optional Text
           , containerLogMaxFiles : Optional Natural
+          , enableCadvisorJsonEndpoints : Optional Bool
           }
       , default =
         { apiServers = None Text
@@ -172,6 +173,7 @@ let KubeletConfigSpec =
         , eventBurst = None Natural
         , containerLogMaxSize = None Text
         , containerLogMaxFiles = None Natural
+        , enableCadvisorJsonEndpoints = None Bool
         }
       }
 

@@ -1,20 +1,24 @@
+let Common = ./Common.dhall
+
+let Spotinst = ./Spotinst.dhall
+
 let AWSEBSCSIDriver = ./AWSEBSCSIDriver.dhall
 
 let AWS =
       { Type =
-          { awsEBSCSIDriver : Optional AWSEBSCSIDriver.Type
-          , disableSecurityGroupIngress : Optional Bool
-          , elbSecurityGroup : Optional Text
-          , spotinstProduct : Optional Text
-          , spotinstOrientation : Optional Text
-          }
+            Common.Type
+          ⩓ Spotinst.Type
+          ⩓ { awsEBSCSIDriver : Optional AWSEBSCSIDriver.Type
+            , disableSecurityGroupIngress : Optional Bool
+            , elbSecurityGroup : Optional Text
+            }
       , default =
-        { awsEBSCSIDriver = None AWSEBSCSIDriver.Type
-        , disableSecurityGroupIngress = None Bool
-        , elbSecurityGroup = None Text
-        , spotinstProduct = None Text
-        , spotinstOrientation = None Text
-        }
+            Common.default
+          ∧ Spotinst.default
+          ∧ { awsEBSCSIDriver = None AWSEBSCSIDriver.Type
+            , disableSecurityGroupIngress = None Bool
+            , elbSecurityGroup = None Text
+            }
       }
 
 let spellcheck = AWS::{=}

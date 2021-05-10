@@ -1,20 +1,24 @@
+let Common = ./Common.dhall
+
+let Spotinst = ./Spotinst.dhall
+
 let GCE =
       { Type =
-          { gceServiceAccount : Optional Text
-          , multizone : Optional Bool
-          , nodeTags : Optional Text
-          , nodeInstancePrefix : Optional Text
-          , spotinstProduct : Optional Text
-          , spotinstOrientation : Optional Text
-          }
+            Common.Type
+          ⩓ Spotinst.Type
+          ⩓ { gceServiceAccount : Optional Text
+            , multizone : Optional Bool
+            , nodeTags : Optional Text
+            , nodeInstancePrefix : Optional Text
+            }
       , default =
-        { gceServiceAccount = None Text
-        , multizone = None Bool
-        , nodeTags = None Text
-        , nodeInstancePrefix = None Text
-        , spotinstProduct = None Text
-        , spotinstOrientation = None Text
-        }
+            Common.default
+          ∧ Spotinst.default
+          ∧ { gceServiceAccount = None Text
+            , multizone = None Bool
+            , nodeTags = None Text
+            , nodeInstancePrefix = None Text
+            }
       }
 
 let spellcheck = GCE::{=}
