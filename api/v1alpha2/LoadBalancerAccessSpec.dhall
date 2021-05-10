@@ -1,3 +1,5 @@
+let LoadBalancerSubnetSpec = ./LoadBalancerSubnetSpec.dhall
+
 let LoadBalancerAccessSpec =
       { Type =
           { class : Optional Text
@@ -9,6 +11,7 @@ let LoadBalancerAccessSpec =
           , sslCertificate : Optional Text
           , sslPolicy : Optional Text
           , crossZoneLoadBalancing : Optional Bool
+          , subnets : Optional (List LoadBalancerSubnetSpec.Type)
           }
       , default =
         { class = None Text
@@ -20,6 +23,7 @@ let LoadBalancerAccessSpec =
         , sslCertificate = None Text
         , sslPolicy = None Text
         , crossZoneLoadBalancing = None Bool
+        , subnets = None (List LoadBalancerSubnetSpec.Type)
         }
       }
 

@@ -7,6 +7,7 @@ let ClusterAutoscalerConfig =
           , skipNodesWithSystemPods : Optional Bool
           , skipNodesWithLocalStorage : Optional Bool
           , newPodScaleUpDelay : Optional Text
+          , scaleDownDelayAfterAdd : Optional Text
           , image : Optional Text
           , memoryRequest : Optional Text
           , cpuRequest : Optional Text
@@ -19,6 +20,7 @@ let ClusterAutoscalerConfig =
         , skipNodesWithSystemPods = None Bool
         , skipNodesWithLocalStorage = None Bool
         , newPodScaleUpDelay = None Text
+        , scaleDownDelayAfterAdd = None Text
         , image = None Text
         , memoryRequest = None Text
         , cpuRequest = None Text

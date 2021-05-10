@@ -2,7 +2,7 @@ let PackagesConfig = ./PackagesConfig.dhall
 
 let DockerConfig =
       { Type =
-          { authorizationPlugins : Optional Text
+          { authorizationPlugins : Optional (List Text)
           , bridge : Optional Text
           , bridgeIP : Optional Text
           , dataRoot : Optional Text
@@ -26,13 +26,15 @@ let DockerConfig =
           , packages : Optional PackagesConfig.Type
           , registryMirrors : Optional (List Text)
           , runtimes : Optional (List Text)
+          , selinuxEnabled : Optional Bool
+          , skipInstall : Optional Bool
           , storage : Optional Text
           , storageOpts : Optional (List Text)
           , userNamespaceRemap : Optional Text
           , version : Optional Text
           }
       , default =
-        { authorizationPlugins = None Text
+        { authorizationPlugins = None (List Text)
         , bridge = None Text
         , bridgeIP = None Text
         , dataRoot = None Text
@@ -56,6 +58,8 @@ let DockerConfig =
         , packages = None PackagesConfig.Type
         , registryMirrors = None (List Text)
         , runtimes = None (List Text)
+        , selinuxEnabled = None Bool
+        , skipInstall = None Bool
         , storage = None Text
         , storageOpts = None (List Text)
         , userNamespaceRemap = None Text

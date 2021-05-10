@@ -1,6 +1,11 @@
 let MetricsServerConfig =
-      { Type = { enabled : Optional Bool, image : Optional Text }
-      , default = { enabled = None Bool, image = None Text }
+      { Type =
+          { enabled : Optional Bool
+          , image : Optional Text
+          , insecure : Optional Bool
+          }
+      , default =
+        { enabled = None Bool, image = None Text, insecure = None Bool }
       }
 
 let spellcheck = MetricsServerConfig::{=}

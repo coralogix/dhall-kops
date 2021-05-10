@@ -43,6 +43,7 @@ let KubeControllerManagerConfig =
           , concurrentNamespaceSyncs : Optional Natural
           , concurrentReplicasetSyncs : Optional Natural
           , concurrentServiceSyncs : Optional Natural
+          , concurrentResourceQuotaSyncs : Optional Natural
           , concurrentServiceaccountTokenSyncs : Optional Natural
           , concurrentRcSyncs : Optional Natural
           , authenticationKubeconfig : Optional Text
@@ -93,6 +94,7 @@ let KubeControllerManagerConfig =
         , concurrentNamespaceSyncs = None Natural
         , concurrentReplicasetSyncs = None Natural
         , concurrentServiceSyncs = None Natural
+        , concurrentResourceQuotaSyncs = None Natural
         , concurrentServiceaccountTokenSyncs = None Natural
         , concurrentRcSyncs = None Natural
         , authenticationKubeconfig = None Text

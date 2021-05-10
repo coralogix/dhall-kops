@@ -21,12 +21,16 @@ let Cilium =
           , enablePolicy : Optional Text
           , enableTracing : Optional Text
           , enablePrometheusMetrics : Optional Bool
+          , enableEncryption : Optional Bool
           , envoyLog : Optional Text
           , ipv4ClusterCidrMaskSize : Optional Natural
           , ipv4Node : Optional Text
           , ipv4Range : Optional Text
           , ipv4ServiceRange : Optional Text
           , ipv6ClusterAllocCidr : Optional Text
+          , ipv6Node : Optional Text
+          , ipv6Range : Optional Text
+          , ipv6ServiceRange : Optional Text
           , k8sApiServer : Optional Text
           , k8sKubeconfigPath : Optional Text
           , keepBpfTemplates : Optional Bool
@@ -51,6 +55,8 @@ let Cilium =
           , stateDir : Optional Text
           , tracePayloadLen : Optional Natural
           , tunnel : Optional Text
+          , enableipv6 : Optional Bool
+          , enableipv4 : Optional Bool
           , monitorAggregation : Optional Text
           , bpfCTGlobalAnyMax : Optional Natural
           , preallocateBPFMaps : Optional Bool
@@ -87,12 +93,16 @@ let Cilium =
         , enablePolicy = None Text
         , enableTracing = None Text
         , enablePrometheusMetrics = None Bool
+        , enableEncryption = None Bool
         , envoyLog = None Text
         , ipv4ClusterCidrMaskSize = None Natural
         , ipv4Node = None Text
         , ipv4Range = None Text
         , ipv4ServiceRange = None Text
         , ipv6ClusterAllocCidr = None Text
+        , ipv6Node = None Text
+        , ipv6Range = None Text
+        , ipv6ServiceRange = None Text
         , k8sApiServer = None Text
         , k8sKubeconfigPath = None Text
         , keepBpfTemplates = None Bool
@@ -117,6 +127,8 @@ let Cilium =
         , stateDir = None Text
         , tracePayloadLen = None Natural
         , tunnel = None Text
+        , enableipv6 = None Bool
+        , enableipv4 = None Bool
         , monitorAggregation = None Text
         , bpfCTGlobalAnyMax = None Natural
         , preallocateBPFMaps = None Bool

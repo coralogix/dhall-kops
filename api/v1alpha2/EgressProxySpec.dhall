@@ -1,9 +1,8 @@
 let HTTPProxy = ./HTTPProxy.dhall
 
 let EgressProxySpec =
-      { Type =
-          { httpProxy : Optional HTTPProxy.Type, proxyExcludes : Optional Text }
-      , default = { httpProxy = None HTTPProxy.Type, proxyExcludes = None Text }
+      { Type = { httpProxy : Optional HTTPProxy.Type, excludes : Optional Text }
+      , default = { httpProxy = None HTTPProxy.Type, excludes = None Text }
       }
 
 let spellcheck = EgressProxySpec::{=}

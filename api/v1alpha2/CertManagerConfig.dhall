@@ -1,5 +1,7 @@
 let CertManagerConfig =
-      { Type = { enabled : Optional Bool }, default.enabled = None Bool }
+      { Type = { enabled : Optional Bool, image : Optional Text }
+      , default = { enabled = None Bool, image = None Text }
+      }
 
 let spellcheck = CertManagerConfig::{=}
 

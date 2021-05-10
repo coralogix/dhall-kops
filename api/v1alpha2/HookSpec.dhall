@@ -1,20 +1,26 @@
 let ExecContainerAction = ./ExecContainerAction.dhall
 
+let Common =
+      { Type =
+          { name : Optional Text
+          , disabled : Optional Bool
+          , roles : Optional (List Text)
+          , requires : Optional (List Text)
+          , before : Optional (List Text)
+          }
+      , default =
+        { name = None Text
+        , disabled = None Bool
+        , roles = None (List Text)
+        , requires = None (List Text)
+        , before = None (List Text)
+        }
+      }
+
 let DockerImage =
       let DockerImage =
-            { Type =
-                { disabled : Optional Bool
-                , roles : Optional (List Text)
-                , requires : Optional (List Text)
-                , before : Optional (List Text)
-                , execContainer : ExecContainerAction.Type
-                }
-            , default =
-              { disabled = None Bool
-              , roles = None (List Text)
-              , requires = None (List Text)
-              , before = None (List Text)
-              }
+            { Type = Common.Type ⩓ { execContainer : ExecContainerAction.Type }
+            , default = Common.default
             }
 
       let spellcheck =
@@ -27,24 +33,12 @@ let DockerImage =
 let SystemdUnit =
       let SystemdUnit =
             { Type =
-                { name : Text
-                , disabled : Optional Bool
-                , roles : Optional (List Text)
-                , requires : Optional (List Text)
-                , before : Optional (List Text)
-                , manifest : Text
-                , useRawManifest : Optional Bool
-                }
-            , default =
-              { disabled = None Bool
-              , roles = None (List Text)
-              , requires = None (List Text)
-              , before = None (List Text)
-              , useRawManifest = None Bool
-              }
+                  Common.Type
+                ⩓ { manifest : Text, useRawManifest : Optional Bool }
+            , default = Common.default ∧ { useRawManifest = None Bool }
             }
 
-      let spellcheck = SystemdUnit::{ manifest = "required", name = "required" }
+      let spellcheck = SystemdUnit::{ manifest = "required" }
 
       in  SystemdUnit
 
