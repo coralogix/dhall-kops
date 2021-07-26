@@ -70,6 +70,13 @@ let RollingUpdate = ./RollingUpdate.dhall
 
 let ClusterAutoscalerConfig = ./ClusterAutoscalerConfig.dhall
 
+let WarmPoolSpec = ./WarmPoolSpec.dhall
+
+let ServiceAccountIssuerDiscoveryConfig =
+      ./ServiceAccountIssuerDiscoveryConfig.dhall
+
+let SnapshotControllerConfig = ./SnapshotControllerConfig.dhall
+
 let ClusterSpec =
       { Type =
           { channel : Optional Text
@@ -143,6 +150,10 @@ let ClusterSpec =
           , sysctlParameters : Optional (List Text)
           , rollingUpdate : Optional RollingUpdate.Type
           , clusterAutoscaler : Optional ClusterAutoscalerConfig.Type
+          , warmPool : Optional WarmPoolSpec.Type
+          , serviceAccountIssuerDiscovery :
+              Optional ServiceAccountIssuerDiscoveryConfig.Type
+          , snapshotController : Optional SnapshotControllerConfig.Type
           }
       , default =
         { channel = None Text
@@ -214,6 +225,10 @@ let ClusterSpec =
         , sysctlParameters = None (List Text)
         , rollingUpdate = None RollingUpdate.Type
         , clusterAutoscaler = None ClusterAutoscalerConfig.Type
+        , warmPool = None WarmPoolSpec.Type
+        , serviceAccountIssuerDiscovery =
+            None ServiceAccountIssuerDiscoveryConfig.Type
+        , snapshotController = None SnapshotControllerConfig.Type
         }
       }
 

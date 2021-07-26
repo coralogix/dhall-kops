@@ -64,10 +64,14 @@
 , NodeTerminationHandlerConfig = ./NodeTerminationHandlerConfig.dhall
 , PackagesConfig = ./PackagesConfig.dhall
 , RollingUpdate = ./RollingUpdate.dhall
+, ServiceAccountIssuerDiscoveryConfig =
+    ./ServiceAccountIssuerDiscoveryConfig.dhall
+, SnapshotControllerConfig = ./SnapshotControllerConfig.dhall
 , TargetSpec = ./TargetSpec.dhall
 , TerraformSpec = ./TerraformSpec.dhall
 , TopologySpec = ./TopologySpec.dhall
 , UserData = ./UserData.dhall
 , VolumeMountSpec = ./VolumeMountSpec.dhall
 , VolumeSpec = ./VolumeSpec.dhall
+, WarmPoolSpec = ./WarmPoolSpec.dhall
 }

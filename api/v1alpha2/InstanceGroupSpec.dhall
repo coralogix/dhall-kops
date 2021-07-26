@@ -22,6 +22,8 @@ let RollingUpdate = ./RollingUpdate.dhall
 
 let InstanceMetadataOptions = ./InstanceMetadataOptions.dhall
 
+let WarmPoolSpec = ./WarmPoolSpec.dhall
+
 let InstanceGroupSpec =
       { Type =
           { role : Text
@@ -68,6 +70,7 @@ let InstanceGroupSpec =
           , compressUserData : Optional Bool
           , instanceMetadata : Optional InstanceMetadataOptions.Type
           , updatePolicy : Optional Text
+          , warmPool : Optional WarmPoolSpec.Type
           }
       , default =
         { autoscale = None Bool
@@ -108,6 +111,7 @@ let InstanceGroupSpec =
         , compressUserData = None Bool
         , instanceMetadata = None InstanceMetadataOptions.Type
         , updatePolicy = None Text
+        , warmPool = None WarmPoolSpec.Type
         }
       }
 
